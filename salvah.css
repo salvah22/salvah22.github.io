@@ -89,15 +89,13 @@ a, a:visited {
 .divider a {
 	background: #000000;
   	vertical-align: middle;
-	padding: 4px;
+	padding: 8px;
 	cursor:pointer;
 	border-bottom: thick solid;
 }
-/*
-.divider:hover{
+.divider:hover a{
 	color: #FFF;
 }
-*/
 .content {
     background: #FFFFFF;
 	color: #0059B3;

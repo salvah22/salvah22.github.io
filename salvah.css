@@ -93,6 +93,10 @@ a, a:visited {
 	cursor:pointer;
 }
 
+.divider a:hover{
+	border-bottom: thick solid;
+}
+
 .content {
     background: #FFFFFF;
 	color: #0059B3;

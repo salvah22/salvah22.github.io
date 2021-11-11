@@ -1,10 +1,5 @@
 @charset "utf-8";
 
-/* reminders
-. -> class
-# -> id
-*/
-
 /* === Fonts === */
 
 /* latin */
@@ -49,7 +44,7 @@ body {
 	font-weight: bold;
 	
 	background-color: black;
-	background-image: url("/img/back.jpg");
+	background-image: url("img/back.jpg");
 	background-position:right top;
 
 }
@@ -65,7 +60,7 @@ a, a:visited {
 }
 
 #header {
-	background-image: url("/img/back.jpg");
+	background-image: url("img/back.jpg");
 	background-repeat: no-repeat;
     background-attachment:fixed;
 	background-position:right;
@@ -79,7 +74,7 @@ a, a:visited {
 }
 
 .divider {
-	background-image: url("/img/back.jpg");
+	background-image: url("img/back.jpg");
 	text-align:right;
 	height:56px;
 	padding-top:20px;
@@ -102,7 +97,6 @@ a, a:visited {
 	text-align:right;
 	
 }
-/* --- SCROLL UP  --- */
 
 #nav {
     width: 100%;
@@ -114,5 +108,4 @@ a, a:visited {
 	line-height: 40px;
 	float: left;
 	width:auto;
-	display:none;
 	}

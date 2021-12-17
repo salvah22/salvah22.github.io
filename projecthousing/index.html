@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NGEN06 Project</title>
+    <link rel="stylesheet" href="style.css"  type="text/css"/>
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL,TextDecoder,Number.isInteger"></script>
+
+    <script src="./jquery.js"></script>
+    <script type="module" src="./main.js" defer></script>
+</head>
+<body>
+    <div class="centered">
+        <table style="width: 100%" border="0">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+        </colgroup>
+        <tr>
+            <th>NGEN07 Project Lund's Housing Map</th>
+            <th>Authored by Salvador Antonio Hernández Malavé & Azin Khosravi Khorashad</th>
+        </tr>
+        </table>
+    </div>
+    <div id="map">
+        <div id="info" class="info">
+            <h4>Properties</h4>
+            <i>Click features to display attributes</i>
+            <div id="infoContent"></div>
+        </div>
+        <div id="filters" class="info">
+            <h4>Filters</h4>
+            <div id="filtersContent">
+                <form name = "filtersForm" id = "filtersForm">
+                    Minimum Rent: <input type = "text" id = "rentMin" name = "rentMin" size = "8" maxlength = "8" /><br>
+                    Maximum Rent: <input type = "text" id = "rentMax" name = "rentMax" size = "8" maxlength = "8" /><br><br>
+                    User Rank: <input type = "text" id = "userRank" name = "userRank" size = "8" maxlength = "8" /><br><br>
+                    <input name="trailer" id="trailer" type="checkbox" checked> Trailers
+                    <input name="house" id="house" type="checkbox" checked> Houses
+                    <input name="apartment" id="apartment" type="checkbox" checked> Apartments<br><br>
+                    <input type="button" id="clear" name="clear" value="Clear Filters"/>
+                </form>
+            </div>
+        </div>
+        <div id="mouse-position"></div>
+    </div>
+    <div>
+        <table style="width: 100%" border="0">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+        </colgroup>
+        <tr>
+            <td>
+                <form class="form-inline">
+                    <label for="type">Measurement type &nbsp;</label>
+                    <select id="type">
+                        <option value="length">Length (LineString)</option>
+                        <option value="area">Area (Polygon)</option>
+                    </select>
+                </form>
+            </td>
+            <td style="text-align: right;">
+                Toggle:
+                <input type="checkbox" id="infoToggle" checked>Properties Panel
+                <input type="checkbox" id="filtersToggle" checked>Filters Panel
+            </td>
+        </tr>
+        </table>
+    </div>
+    <div id="inform"></div>
+
+</body>
+</html>

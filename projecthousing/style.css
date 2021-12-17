@@ -1,0 +1,127 @@
+@import "node_modules/ol/ol.css";
+
+/* OG*/
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: large;
+}
+
+
+.centered {
+    text-align: center;
+}
+
+.toolbar-centered {
+    text-align: center;
+    color: rgb(119, 119, 119);
+    width: 100%;
+}
+
+#map {
+    height: 94%;
+    /*border: 1px solid black;*/
+    position: relative;
+    width: 100%;
+}
+
+.info {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 16px;
+    color: #000;
+    padding: 10px;
+    font-style: normal;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    /*overflow-x: scroll;
+    overflow-y: scroll;*/
+}
+
+#filters {
+    bottom: 20px;
+}
+
+#info {
+    top: 0;
+}
+
+#mouse-position {
+    position: absolute;
+    bottom: 68px;
+    width: 175px;
+    z-index: 100;
+    left: 0;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+#info li {
+    text-align: left;
+}
+
+.ol-scale-line {
+}
+
+.ol-scale-line-inner {
+}
+
+/* measurement */
+.form-inline {
+    z-index: 100;
+    position: relative;
+    top: 98%;
+}
+
+.measure {
+    top: 114px;
+    left: .5em;
+}
+
+.clear {
+    top: 145px;
+    left: .5em;
+}
+
+.ol-tooltip {
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    color: white;
+    padding: 4px 8px;
+    opacity: 0.7;
+    white-space: nowrap;
+    font-size: 12px;
+    cursor: default;
+    user-select: none;
+}
+.ol-tooltip-measure {
+    opacity: 1;
+    font-weight: bold;
+}
+.ol-tooltip-static {
+    background-color: #C800FF;
+    color: white;
+    border: 1px solid white;
+}
+.ol-tooltip-measure:before,
+.ol-tooltip-static:before {
+    border-top: 6px solid rgba(0, 0, 0, 0.5);
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    margin-left: -7px;
+    left: 50%;
+}
+.ol-tooltip-static:before {
+    border-top-color: #C800FF;
+}

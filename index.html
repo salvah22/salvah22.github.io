@@ -1,169 +1,77 @@
-<!doctype html>
-
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta http-equiv='content-type' content='text/html; charset=UTF-8'>
-    <meta name='robots' content='index'/>
-    <meta name='author' content='Salvador Hernández Malavé'/>
-    <link rel='stylesheet' href='salvah.css'  type='text/css'/>
-    <link rel='shortcut icon' href='favicon.png' type='image/png'/>
-    <title>Salvador Hernandez Portfolio</title>
-    <script src='s.js'></script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NGEN06 Project</title>
+    
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL,TextDecoder,Number.isInteger"></script>
+    
+  <script type="module" crossorigin src="/assets/index.48e32f54.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.8bcbfaab.js">
+  <link rel="stylesheet" href="/assets/index.d5232ac5.css">
 </head>
+<body>
+    <div class="centered">
+        <table style="width: 100%" border="0">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+        </colgroup>
+        <tr>
+            <th>NGEN07 Project Lund's Housing Map</th>
+            <th>Authored by Salvador Antonio Hernández Malavé & Azin Khosravi Khorashad</th>
+        </tr>
+        </table>
+    </div>
+    <div id="map">
+        <div id="info" class="info">
+            <h4>Properties</h4>
+            <i>Click features to display attributes</i>
+            <div id="infoContent"></div>
+        </div>
+        <div id="filters" class="info">
+            <h4>Filters</h4>
+            <div id="filtersContent">
+                <form name = "filtersForm" id = "filtersForm">
+                    Minimum Rent: <input type = "text" id = "rentMin" name = "rentMin" size = "8" maxlength = "8" /><br>
+                    Maximum Rent: <input type = "text" id = "rentMax" name = "rentMax" size = "8" maxlength = "8" /><br><br>
+                    User Rank: <input type = "text" id = "userRank" name = "userRank" size = "8" maxlength = "8" /><br><br>
+                    <input name="trailer" id="trailer" type="checkbox" checked> Trailers
+                    <input name="house" id="house" type="checkbox" checked> Houses
+                    <input name="apartment" id="apartment" type="checkbox" checked> Apartments<br><br>
+                    <input type="button" id="clear" name="clear" value="Clear Filters"/>
+                </form>
+            </div>
+        </div>
+        <div id="mouse-position"></div>
+    </div>
+    <div>
+        <table style="width: 100%" border="0">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 50%;">
+        </colgroup>
+        <tr>
+            <td>
+                <form class="form-inline">
+                    <label for="type">Measurement type &nbsp;</label>
+                    <select id="type">
+                        <option value="length">Length (LineString)</option>
+                        <option value="area">Area (Polygon)</option>
+                    </select>
+                </form>
+            </td>
+            <td style="text-align: right;">
+                Toggle:
+                <input type="checkbox" id="infoToggle" checked>Properties Panel
+                <input type="checkbox" id="filtersToggle" checked>Filters Panel
+            </td>
+        </tr>
+        </table>
+    </div>
+    <div id="inform"></div>
 
-<body onload='bodyLoad()'>
-<div id='nav' class='wrapper' style='cursor:pointer;' onClick='navClick()'>
-    <p>Close all</p>
-</div>
-
-<div class='wrapper' id='header' style='text-align:center;'>
-    <p><img src='img/profile.png' width='216'></p>
-    <p>Salvador Antonio Hernández Malavé</p>
-</div>
-    
-<div class='wrapper' style='height:56px; padding-top:20px;'>
-    <p style='text-align:center'>Geomatics Master's Student, Geophysical Engineer</p>
-</div>
-    
-<div id='arcgis' class='divider' style='background-position: 0px 0px; color:#50BDDE;' onclick='contentCheck(this.id)'>
-    <a>Geographical Information Systems (GIS)</a>
-</div>
-    	
-<div id='content_arcgis' class='content'>
-	<p>&nbsp;</p>
-	<img src='img/qgis.png' height='140'>
-    <img src='img/arcgis.png' height='140'>
-	<p>&nbsp;</p>
-    <p>Experience with ArcGIS Pro (ArcPro), ArcGIS and QGIS, Terrset, ENVI, PostGIS (PostgreSQL)</p>
-    <p><span style='font-weight:100'>I've employed Python for programmatically solving tedious and repetitive tasks, and data visualization, I lean to open-source solutions with libraries like</span> OSGeo, GDAL, OSR, Cartopy, Earthpy &amp; QGIS tools.</p>
-    <p>Data Management &amp; Harmonization, Digitization &amp; georeferencing, Remote Sensing &amp; Satellite Imagery, Spatial Databases Management &amp; Development, Cartography</p>
-	<p>&nbsp;</p>
-    <img src='img/arcgis3.png' width='700px'>
-    <img src='img/arcgis1.png' width='700px'>
-    <img src='img/arcgis2.png' width='700px'>
-    <img src='img/arcgis4.png' width='700px'>
-    <img src='img/gearth.jpg' width='700px'>
-    <img src='img/Picture1.png'>
-    <img src='img/Picture3.png'>
-    <img src='img/cartopy.png' height='600px'>
-    <p>&nbsp;</p>
-</div>
-   
-<div id='geostat' class='divider' style='background-position: 0px -81px; color:#099A79;' onclick='contentCheck(this.id)'>
-    <a>Geostatistics</a>
-</div>
-    
-<div id='content_geostat' class='content'>
-  	<p>&nbsp;</p>
-	<img src='img/r.png' width='140' height='140'>
-    <img src='img/scipy.png' width='140' height='140'>
-    <img src='img/matlab.png' width='140' height='140'>
-  	<p>&nbsp;</p>
-  	<p>R, Rstudio, Python (Scipy, Numpy, among others), Matlab, Spreadsheets in several softwares...</p>
-  	<p>Data wrangling &amp; visualization, Point Pattern Analysis, Spatial Autocorrelation, Clustering and Classification (Linear and Non-linear Machine learning algorithms), Uncertainty &amp; Error Assessment (Montecarlo)</p>
-  	<p>&nbsp;</p>
-    <img src='img/Rplot13.png' width='1000'>
-    <img src='img/geostats1.jpg' width='700'>
-    <p>&nbsp;</p>
-</div>
-    
-
-<div id='python' class='divider' style='background-position: 0px -162px; color:#FFCC33;' onclick='contentCheck(this.id)'>
-    <a>Machine Learning &amp; Python</a>
-</div>
-
-<div id='content_python' class='content'>
-    <p>&nbsp;</p>
-  	<img src='img/python.png' width='140' height='140'>
-  	<img src='img/numpy.png' width='140' height='140'>
-    <p>&nbsp;</p>
-    <p>I'm currently developing a Machine Learning algorithm in Pytorch for classifying remotely sensed data (LANDSAT Imagery &amp; Sentinel-2 Radar Imagery) for a Wetlands Land Cover Classification.</p>
-    <p>Experience with Python Applications in Physical Geography and Earth Sciences, Object-Oriented Programming &amp; Data Science</p>
-    <p>&nbsp;</p>
-    <p><a href= 'https://github.com/salvah22/horizonangles'>Project: Horizon Angles (ArcGIS Toolbox)</a></p>
-    <p>&nbsp;</p>
-    <p><span style='font-weight:100'>I developed a script that calculates the maximum angular obstruction for each cell on a raster, particularly from a digital elevation model (DEM), recreating functions from GRASS GIS and GDAL, it combines </span>ArcPy<span style='font-weight:100'>. The project required the design of a graphic user interface (GUI) allowing to easily parse parameters between ArcGIS and Python. <a href= 'https://github.com/salvah22/horizonangles'>Available on Github.</a></span></p>
-    <p>&nbsp;</p>
-  	<p><img src='img/arcgis5.png'>
-  	<img src='img/3.png' width='800'></p>
-  	<p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p><a href='https://github.com/salvah22/koppenclassification' target='_blank'>Project: The prospects of coffee cultivation in South America in a future climate</a></p>
-    <p>&nbsp;</p>
-    <p style='font-weight:100'>I developed group of Python scripts for classifying The Earth's climate zones based on Köppen-Gauger method, averaging NC files in climate normals for global temperature and precipitation from several CMIP6 experiments: historical and Representative Concentration Pathway 8.5(RCP) models. <a href='https://github.com/salvah22/koppenclassification' target='_blank'>Available on Github.</a></p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p><img src='img/ssp585.png' width='800'></p>
-    <p>&nbsp;</p>
-</div>
-
-<div id='geophysics' class='divider' style='background-position: 0px -243px; color:#B59F52;' onclick='contentCheck(this.id)'>
-		<a>Geophysics</a>
-</div>
-    
-<div id='content_geophysics' class='content'>
-    <p>&nbsp;</p>
-    <img src='img/opendtect.png' width='140' height='140'>
-    <p>&nbsp;</p>
-    <p>Seismic processing and interpretation, Petrophysics &amp; well logs.</p>
-    <p>Fuzzy Logic, Neural Networks &amp; Deep learning algorithms for regression.</p>
-    <p>&nbsp;</p>
-    <p>Bachelor's Thesis</p>
-    <p>Title: &ldquo;Vp logs prediction from well logs and seismic using ANFIS&rdquo;</p>
-    <p>&nbsp;</p>
-    <p style='font-weight:100'>The goal was to infer sonic logs for 27 wells located in a productive basin in Venezuela, using fuzzy logic and neural networks combining radioactive and resistive logs different seismic attributes as input. The generated maps showed the expected low p-wave velocity behavior for most of the geologic horizons around each currently active well.</p>
-    <p style='font-weight:100'>The project included OpendTect Neural Networks module, MATLAB ANFIS (Adaptative Neuro-Fuzzy Inference System) for training the fuzzy sets, SegyMat library for reading traces, and Petrel, Oasis Montaj for data management.</p>
-    <p>&nbsp;</p>
-    <img src='img/fuzzy.png' width='600'><img src='img/anfis.png' width='600'>
-    <img src='img/I3.png' width='650'>
-    <img src='img/petrel.png' width='100%'>
-    <p>&nbsp;</p>
-</div>
-
-
-<div id='sql' class='divider' style='background-position: 0px -324px; color:#579EFF;' onclick='contentCheck(this.id)'>
-  	<a>SQL</a>
-</div>
-    
-<div id='content_sql' class='content'>
-    <p>&nbsp;</p>
- 	<img src='img/postgre.png' width='140' height='140'>
-    <img src='img/postgis.png' width='140' height='140'>
-    <p>&nbsp;</p>
-    <p>Spatial Databases (PostGIS)</p>
-    <p>Structured Query Language</p>
-    <p>PostgreSQL, MySQL, pgAdmin</p>
-    <p>Database modelling and design</p>
-    <p>&nbsp;</p>
-  	<p><img src='img/map_small.gif'>
-  	<img src='img/map_legend.png' height=600>
-  	<img src='img/sql.png'></p>
-    <p>&nbsp;</p>
-    
-</div>
-
-<div id='web' class='divider' style='background-position: 0px -405px; color:#9FFB00;' onclick='contentCheck(this.id)'>
-		<a>Web Developing</a>
-</div>
-    
-<div id='content_web' class='content'>
-    <p>&nbsp;</p>
-	<img src='img/html5css3js.png' height='183'>
-	<img src='img/photoshop.png' height='140'>
-	<img src='img/dreamweaver.png' height='140'>
-    <p>&nbsp;</p>
-    <p>Web design and development using HTML, CSS and JavaScript</p>
-    <p>&nbsp;</p>
-    <p>Finished projects:</p>
-    <p style='font-weight:100'><a href='http://cial.com.ve' target='_blank'>CIAL School website</a></p>
-    <p>&nbsp;</p>
-</div>
-
-<div class='wrapper' style='text-align:center;'>
-        <a href='https://github.com/salvah22/' target='_blank'><img src='img/github.png' width='216' height='216'></a>
-		<a href='https://www.linkedin.com/in/salvadorhernandezmalave/' target='_blank'><img src='img/linkedin.png' width='216' height='216'></a>
-        <a href='mailto:salvadorhernandezmalave@gmail.com' target='_blank'><img src='img/email.png' width='216' height='216'></a>
-</div>
 </body>
 </html>

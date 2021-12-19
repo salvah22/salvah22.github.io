@@ -71,6 +71,7 @@ a, a:visited {
 .wrapper {
     background: #000000;
 	text-decoration:none;
+    text-align:center;
 }
 
 .divider {
@@ -95,7 +96,7 @@ a, a:visited {
     background: #FFFFFF;
 	color: #0059B3;
 	text-align:right;
-	
+	font-weight:100;
 }
 
 #nav {
@@ -108,4 +109,5 @@ a, a:visited {
 	line-height: 40px;
 	float: left;
 	width:auto;
-	}
+    cursor:pointer;
+}

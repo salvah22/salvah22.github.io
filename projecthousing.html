@@ -8,31 +8,20 @@
     
     <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL,TextDecoder,Number.isInteger"></script>
     
-  <script type="module" crossorigin src="/assets/index.0f779e88.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.8bcbfaab.js">
-  <link rel="stylesheet" href="/assets/index.d5232ac5.css">
+  <script type="module" crossorigin src="/assets/index.0efe3cc6.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.df98d922.js">
+  <link rel="stylesheet" href="/assets/index.f00cd5d1.css">
 </head>
 <body>
-    <div class="centered">
-        <table style="width: 100%" border="0">
-        <colgroup>
-            <col span="1" style="width: 50%;">
-            <col span="1" style="width: 50%;">
-        </colgroup>
-        <tr>
-            <th>NGEN07 Project Lund's Housing Map</th>
-            <th>Authored by Salvador Antonio Hernández Malavé & Azin Khosravi Khorashad</th>
-        </tr>
-        </table>
-    </div>
     <div id="map">
         <div id="info" class="info">
-            <h4>Properties</h4>
-            <i>Click features to display attributes</i>
-            <div id="infoContent"></div>
+
+            <div id="infoContent"><h4>Properties</h4>
+            <i>Select accommodation options to display information</i></div>
         </div>
+
         <div id="filters" class="info">
-            <h4>Filters</h4>
+            <h4>Filter housing options</h4>
             <div id="filtersContent">
                 <form name = "filtersForm" id = "filtersForm">
                     Minimum Rent: <input type = "text" id = "rentMin" name = "rentMin" size = "8" maxlength = "8" /><br>
@@ -45,16 +34,16 @@
                 </form>
             </div>
         </div>
-        <div id="mouse-position"></div>
-    </div>
-    <div>
-        <table style="width: 100%" border="0">
-        <colgroup>
-            <col span="1" style="width: 50%;">
-            <col span="1" style="width: 50%;">
-        </colgroup>
-        <tr>
-            <td>
+
+        <div id="moreinfo" class="info">
+            <h1>NGEN07 Project: Lund's Housing Map</h1>
+            <p>Authored by Salvador Antonio Hernández Malavé &amp; Azin Khosravi Khorashad</p>
+            <p>
+                Toggle:
+                <input type="checkbox" id="infoToggle" checked>Information Panel
+                <input type="checkbox" id="filtersToggle" checked>Filters Panel
+            </p>
+
                 <form class="form-inline">
                     <label for="type">Measurement type &nbsp;</label>
                     <select id="type">
@@ -62,16 +51,9 @@
                         <option value="area">Area (Polygon)</option>
                     </select>
                 </form>
-            </td>
-            <td style="text-align: right;">
-                Toggle:
-                <input type="checkbox" id="infoToggle" checked>Properties Panel
-                <input type="checkbox" id="filtersToggle" checked>Filters Panel
-            </td>
-        </tr>
-        </table>
+            <div id="nav"><b>X</b></div>
+        </div>
+        <div id="mouse-position"></div>
     </div>
-    <div id="inform"></div>
-
 </body>
 </html>

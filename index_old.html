@@ -1,0 +1,197 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta http-equiv='content-type' content='text/html; charset=UTF-8'>
+    <meta name='robots' content='index'/>
+    <meta name='author' content='Salvador Hernández Malavé'/>
+    <link rel='stylesheet' href='salvah.css'  type='text/css'/>
+    <link rel='shortcut icon' href='favicon.png' type='image/png'/>
+    <title>Salvador Hernandez Portfolio</title>
+    <script src='s.js'></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTMNWK8TD8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LTMNWK8TD8');
+    </script>
+</head>
+
+<body onload='bodyLoad()'>
+<div id='nav' class='wrapper' onClick='navClick()'>
+    <p>Close all</p>
+</div>
+
+<div class='wrapper' id='header'>
+    <p><img src='img/profile.png' width='216'></p>
+    <p>Salvador Antonio Hernández Malavé</p>
+</div>
+
+<div class='wrapper' style='height:56px; padding-top:20px;'>
+    <p>Geomatics Master's Student, Geophysical Engineering Degree</p>
+</div>
+
+<div id='gis' class='divider' style='background-position: -8px 0px; color:#50BDDE;' onclick='contentCheck(this.id)'>
+    <a>Geographical Information Systems (GIS)</a>
+</div>
+
+<div id='content_gis' class='content'>
+	<br>
+	<img src='img/qgis2.png' height='140'>
+    <img src='img/gdal.png' height='140'>
+    <img src='img/gee.png' height='140'>
+    <img src='img/arcpro.png' height='140'>
+	<br>
+    <p><b>Experience in Geographical Information Systems, if I can solve something with the linux console that's my preferred solution. I lean to open-source solutions with python and QGIS. And have experience using ArcGIS Pro (ArcPro), ArcGIS, Terrset, ENVI, FML &amp; PostGIS (PostgreSQL)</p>
+    <br>
+    <p>I employ Python for programmatically solving tedious and repetitive tasks, and data visualization.<p>
+    <br>
+    </b></p>
+    <br>
+    <p>Worked with Integration of multi-source imagery, using SNAP toolbox, Sentinel-2 and LANDSAT imagery.</p>
+    <p>Data Management &amp; Harmonization<br>Digitization &amp; georeferencing<br>Remote Sensing &amp; Satellite Imagery<br>Spatial Databases (SQL & PostGIS)<br>Cartography</p>
+	<br>
+    <img src='img/arcgis3.png' width='700px'>
+    <img src='img/arcgis1.png' width='700px'>
+    <img src='img/arcgis2.png' width='700px'>
+    <img src='img/arcgis4.png' width='700px'>
+    <img src='img/gearth.jpg' width='700px'>
+    <img src='img/Picture1.png'>
+    <img src='img/Picture3.png'>
+    <img src='img/cartopy.png' height='600px'>
+    <br>
+</div>
+
+<div id='programming' class='divider' style='background-position: -8px -81px; color:#FFCC33;' onclick='contentCheck(this.id)'>
+    <a>Programming &amp; Geo-statistics</a>
+</div>
+
+<div id='content_programming' class='content'>
+    <br>
+  	<img src='img/python.png' width='140' height='140'>
+  	<img src='img/numpy.png' width='140' height='140'>
+  	<img src='img/geopandas.png' width='140' height='140'>
+	<img src='img/r.png' width='140' height='140'>
+    <img src='img/scipy.png' width='140' height='140'>
+    <img src='img/tf.png' width='140' height='140'>
+    <br>
+    <p><b>Python, JavaSript, and R</b>. Extract, Transform and Load <b>(ETL)</b>, Object-Oriented Programming and Data science.
+    <br>
+    My interest is solving real life problems programmatically, and I enjoy the most applications in Physical geography and Earth Sciences.
+    <br>
+    Libraries I've employed: <b>Numpy, Pandas, Geopandas, Scipy, ArcPy, geopandas, shapely, GDAL and OSR.</b>
+    <br>
+    Additionaly: <b>Rstudio and Matlab</b> for data manipulation and visualization. I also get my way around spreadsheets.</p>
+    <br>
+    <p><img src='img/Rplot13.png' width='700'></p>
+    <br>
+    <p><b>Master's Thesis: &ldquo;Monitoring wetlands in Sweden using multi-source satellite data and machine learning algorithms&rdquo;</b></p>
+    <br>
+    <p>I developed a whole pipeline workflow for classifying wetlands all over Sweden
+    gathering multi-source multi-temporal imagery, from Sentinel-1 and Sentinel-2 satellites, combining it with topographical information
+
+    Machine Learning algorithm in <b>Keras TensorFlow</b> for classifying multi-source remotely sensed data (LANDSAT &amp; Sentinel-2 Radar Imagery) for a Wetlands Land Cover Classification.</p>
+    <br>
+    <p><b><a href= 'https://github.com/salvah22/horizonangles'>Project: Horizon Angles (ArcGIS Toolbox)</a></b></p>
+    <br>
+    <p>I developed a script that calculates the maximum angular obstruction for each cell on a raster, particularly from a digital elevation model (DEM), recreating functions from GRASS GIS and GDAL, it combines ArcPy. The project required the design of a graphic user interface (GUI) allowing to easily parse parameters between ArcGIS and Python. <a href= 'https://github.com/salvah22/horizonangles'>Available on Github.</a></p>
+    <br>
+  	<p><img src='img/arcgis5.png'>
+  	<img src='img/3.png' width='800'></p>
+    <br>
+    <p><b><a href='https://github.com/salvah22/koppenclassification' target='_blank'>Project: The prospects of coffee cultivation in South America in a future climate</a></b></p>
+    <br>
+    <p>I developed a group of Python scripts for classifying The Earth's climate zones based on Köppen-Gauger method, averaging NC files in climate normals for global temperature and precipitation from several CMIP6 experiments: historical and Representative Concentration Pathway 8.5(RCP) models. <a href='https://github.com/salvah22/koppenclassification' target='_blank'>Available on Github.</a></p>
+    <br>
+    <p><img src='img/ssp585.png' width='800'></p>
+    <br>
+    <a id='personal' onclick='contentCheck(this.id)' style='cursor:pointer;'><b>Personal Projects</b></a>
+    <br>
+</div>
+
+<div id='content_personal' class='content'>
+    <p><b><a href='https://aur.archlinux.org/packages/windscribe-cli/' target='_blank'>Windscribe-cli in AUR</a></b></p>
+    <p>I'm currently maintaining a package in the Arch User Repository (AUR), for the Arch Linux community.</p>
+    <p>For this purpose I employed the <a href='https://www.crummy.com/software/BeautifulSoup/bs4/doc/' target='_blank'>BeautifulSoup</a> library in Python to automatically check <a href='https://gist.github.com/salvah22/07fe98657e28d5b89f02f45188f76614' target='_blank'>(with a python script)</a> for new updates every time my laptop boots.</p>
+    <br>
+    <p><b><a href='https://gist.github.com/salvah22/b1418cb71e9d51ca332a9d8d7c82bf5a' target='_blank'>Google Keep Takeout</a></b></p>
+    <br>
+    <p>A simple script for simplifying Google keep notes takeout from JSON to TXT</p>
+    <br>
+</div>
+
+<div id='web' class='divider' style='background-position: -8px -162px; color:#9FFB00;' onclick='contentCheck(this.id)'>
+    <a>Web Developing</a>
+</div>
+
+<div id='content_web' class='content'>
+	<img src='img/ol.png' height='140'>
+	<img src='img/html5css3js.png' height='183'>
+	<img src='img/photoshop.png' height='140'>
+	<img src='img/dreamweaver.png' height='140'>
+    <br>
+    <p>Experience Web design and development using <b>HTML, CSS, and JavaScript</b></p>
+    <p>Markup languages <b>XML, KML, GML, and JSON</b></p>
+    <br>
+    <p><b><a href='projecthousing.html' target='_blank'>Housing Project</a></b></p>
+    <br>
+    <p>I developed a webmapping service for a Master's Programme project, using  which could be used by any of the Housing Agencies in Lund; most lack this kind of feature.</p>
+    <p>Using <a href='https://openlayers.org/' target='_blank'>OpenLayers</a>, <a href='https://www.openstreetmap.org/' target='_blank'>OpenStreet Map (OSM)</a>, and WMS requests to a <a href='http://geoserver.org/' target='_blank'>GeoServer</a> hosted in Lund's University.</p>
+    <p>For deploying the OpenLayers (OL) with ES6 JavaScript, I employed <a href='https://www.npmjs.com/' target='_blank'>NPM</a>.</p>
+    <br>
+    <p><b><a href='http://cial.com.ve' target='_blank'>CIAL School website</a></b></p>
+    <br>
+    <p>I developed a schools website in 2014 and mantained it until 2019.</p>
+    <br>
+</div>
+
+<div id='geophysics' class='divider' style='background-position: -8px -243px; color:#B59F52;' onclick='contentCheck(this.id)'>
+		<a>Geophysics</a>
+</div>
+
+<div id='content_geophysics' class='content'>
+    <br>
+    <img src='img/opendtect.png' width='140' height='140'>
+    <img src='img/matlab.png' width='140' height='140'>
+    <br>
+    <p>Seismic processing and interpretation, Petrophysics &amp; well logs.</p>
+    <p>Fuzzy Logic, Neural Networks &amp; Deep learning algorithms for regression.</p>
+    <br>
+    <p><b>Bachelor's Thesis: &ldquo;Vp logs prediction from well logs and seismic using ANFIS&rdquo;</b></p>
+    <br>
+    <p>The goal was to infer sonic logs for 27 wells located in a productive basin in Venezuela, using fuzzy logic and neural networks combining radioactive and resistive logs, with different seismic attributes resampled and extracted from a seismic cube, as input for the neuro-fuzzy (machine learning) regressor. The generated maps showed the expected low p-wave velocity behavior for most of the geologic horizons around each currently active well. And the accuracies </p>
+    <p>For the project we employed <b>OpendTect Neural Networks module, MATLAB ANFIS</b> (Adaptative Neuro-Fuzzy Inference System) for training the fuzzy sets, <b>SegyMat</b> library for reading traces and <b>Oasis Montaj</b> for data management.</p>
+    <br>
+    <img src='img/fuzzy.png' width='600'><img src='img/anfis.png' width='600'>
+    <img src='img/I3.png' width='650'>
+    <img src='img/petrel.png' width='100%'>
+    <br>
+</div>
+
+
+<div id='sql' class='divider' style='background-position: -8px -324px; color:#579EFF;' onclick='contentCheck(this.id)'>
+  	<a>SQL</a>
+</div>
+
+<div id='content_sql' class='content'>
+    <br>
+ 	<img src='img/postgre.png' width='140' height='140'>
+    <img src='img/postgis.png' width='140' height='140'>
+    <br>
+    <p>During my Master's I've hands-on learned <b>SQL</b> (Structured Query Language), Spatial Databases (<b>PostGIS</b>), <b>PostgreSQL</b>, MySQL, pgAdmin, database modelling and design (UML)</p>
+    <br>
+  	<p><img src='img/map_small.gif'><img src='img/map_legend.png' height=600><img src='img/sql.png'></p>
+    <br>
+
+</div>
+
+<div class='wrapper' style='text-align:center;'>
+    <a href='https://github.com/salvah22/' target='_blank'><img src='img/github.png' width='216' height='216'></a>
+    <a href='https://www.linkedin.com/in/salvadorhernandezmalave/' target='_blank'><img src='img/linkedin.png' width='216' height='216'></a>
+    <a href='mailto:salvadorhernandezmalave@gmail.com' target='_blank'><img src='img/email.png' width='216' height='216'></a>
+</div>
+</body>
+</html>

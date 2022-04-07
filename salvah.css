@@ -43,9 +43,6 @@ body {
 	color:#FFF;
 	font-weight: bold;
 	
-	background-color: black;
-	background-image: url("img/back.jpg");
-	background-position:right top;
 
 }
 div {
@@ -63,7 +60,8 @@ a, a:visited {
 	background-image: url("img/back.jpg");
 	background-repeat: no-repeat;
     background-attachment:fixed;
-	background-position:right;
+    background-position: -8px 0px;
+
 	padding width:100%;
 	font-size:2.5em;
 	}
@@ -110,4 +108,36 @@ a, a:visited {
 	float: left;
 	width:auto;
     cursor:pointer;
+}
+
+/*Define the keyframe animation and name it blink*/
+@keyframes blink{
+  0%{ color:#50BDDE; }
+  80%{ color:#FFFFFF; }
+}
+/*Add compatibility prefix*/
+@-webkit-keyframes blink {
+    0% { color:#50BDDE; }
+    80% { color:#FFFFFF; }
+}
+@-moz-keyframes blink {
+    0% { color:#50BDDE; }
+    80% { color:#FFFFFF; }
+}
+@-ms-keyframes blink {
+    0% { color:#50BDDE; }
+    80% { color:#FFFFFF; }
+}
+@-o-keyframes blink {
+    0% { color:#50BDDE; }
+    80% { color:#FFFFFF; }
+}
+/*Define blink class, I want to add the class at pageload and remove it after 10 seconds*/
+.blink{
+    animation: blink 1s linear infinite;
+    /*Other browser compatibility prefixes*/
+    -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink 1s linear infinite;
+    -ms-animation: blink 1s linear infinite;
+    -o-animation: blink 1s linear infinite;
 }

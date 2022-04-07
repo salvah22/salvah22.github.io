@@ -9,6 +9,8 @@ function bodyLoad(){
     // hide nav on document ready
     document.getElementById('nav').style.display = 'none';
     hideAllContents();
+    document.getElementById('blinka').classList.add('blink');
+    setTimeout('document.getElementById("blinka").classList.remove("blink");', 10000); // miliseconds
 }
 
 function navClick(){
@@ -38,4 +40,8 @@ function contentCheck(id){
             document.getElementById('nav').style.display = 'none';
         }
     }
+}
+
+function enlargeMe(img) {
+  img.style.width = "700px";
 }

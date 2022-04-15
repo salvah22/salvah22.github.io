@@ -4,15 +4,12 @@ function hideAllContents(){
         elements[i].style.display = 'none';
     }
 }
-
 function bodyLoad(){
-    // hide nav on document ready
-    document.getElementById('nav').style.display = 'none';
     hideAllContents();
-    document.getElementById('blinka').classList.add('blink');
-    setTimeout('document.getElementById("blinka").classList.remove("blink");', 10000); // miliseconds
+    document.getElementById('nav').style.display = 'none'; // hide nav on document ready
+    document.getElementById('blinka').classList.add('blink'); // make GIS blink
+    setTimeout('document.getElementById("blinka").classList.remove("blink");', 10000); // and stop GIS blinking after X miliseconds
 }
-
 function navClick(){
     // scroll up when nav is clicked and hide all contents
     document.getElementById('nav').style.display = 'none';
@@ -20,7 +17,6 @@ function navClick(){
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
 function contentCheck(id){
     // A single method to show element "content_" + button pressed id
     if (document.getElementById('content_' + id).style.display === 'none'){
@@ -41,7 +37,9 @@ function contentCheck(id){
         }
     }
 }
-
 function enlargeMe(img) {
   img.style.width = "700px";
+}
+function enlargeMe2(img) {
+  img.style.height = "600px";
 }

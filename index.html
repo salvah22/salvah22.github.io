@@ -13,10 +13,10 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTMNWK8TD8"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LTMNWK8TD8');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LTMNWK8TD8');
     </script>
 </head>
 
@@ -31,103 +31,151 @@
 </div>
 
 <div class='wrapper'>
-    <p>Geomatics Master's Student, Geophysical Engineering Degree</p>
+    <p>Software Developer, GIS specialist</p>
 </div>
 
-<div id='gis_prog' class='divider' style='background-position: -8px 0px; color:#4DD3FF; ' onclick='contentCheck(this.id)'>
-    <a id='blinka' class='blink'>Geographical Information Systems (GIS) &amp; Programming</a>
+<div id='web' class='divider' style='background-position-y: var(--bg-y-pos); color:#9FFB00;' onclick='contentCheck(this.id)'>
+    <a>Software &amp; Web Development</a>
+</div>
+
+<div id='content_web' class='content'>
+    <br>
+
+    <p>
+        <img src='img/bash.png' height='100'>
+        <img src='img/python.png' height='100'>
+        <img src='img/java.png' height='100'>
+        <img src='img/r.png' height='100'>
+    </p>
+    <br>
+    <p>Can write in <b>Bash, Python, Java, and R.</b></p>
+    <p>Contributed and developed backend utilities mostly to be used in software and graphical user interfaces (gui).</p>
+    
+    <br><hr><br>
+
+    <p>
+        <img src='img/csshtml.png' height='125'>
+        <img src='img/js.jpg' height='100'>
+        <img src='img/ts.jpg' height='100'>
+        <img style='margin-right:5px;margin-left:5px;' src='img/svelte.png' height='100'>
+        <img src='img/nodejs.png' height='100'>
+        <img src='img/spring-boot.png' height='100'>
+        <img src='img/jsf.png' height='100'>
+        <img src='img/d3.png' height='100'>
+        <img src='img/ol.png' height='100'>
+    </p>
+    <br>
+    <p>Proven experience in web design and development using vanilla <b>HTML, CSS, JavaScript, TypeScript, and JSON</b> (the best markup lang!). And with frameworks such as <b>Svelte, NodeJS, Spring Boot, and Jakarta Faces (JSF or JavaServer Faces)</b>.</p>
+    <p>GUI's development employing OS libraries like <b>D3, and OpenLayers</b>.</p>
+    <p>Usually focus in user interfaces taking time to think about looks and user experience.</p>
+    
+    <br><hr><br>
+
+    <p>
+        <img src='img/neo4j.png' width='100' height='100'>
+        <img src='img/postgre.png' width='100' height='100'>
+        <img src='img/postgis.png' width='100' height='100'>
+    </p>
+    <br>
+    <p>Acquainted with databases, DBMS and query languages such as <b>SQL, Neo4j's Cypher (CQL), PostgreSQL, Spatial Databases</b>, etc.</p>
+
+    <br><hr><br>
+
+    <p><a href='https://github.com/salvah22/finances-tool' target='_blank'><b><u>Finances Tool</u></b></a></p>
+    <p>Needing to keep track of my expenses, and tired of <a href='https://www.rewire.org/do-budgeting-apps-know-too-much/' target='_blank'>third-party apps selling my data</a>. (WIP) I am currently developing an app for (mainly) visualization of expenses, using tk-inter, pandas, and matplotlib. Where the data is stored in a not fancy spreadsheet, such as an excel or csv file.</p>
+    <p><img src='https://raw.githubusercontent.com/salvah22/finances-tool/main/.github/img/screenshot1.png'></p>
+    
+    <br><hr><br>
+
+    <p><a href='projecthousing.html' target='_blank'><b><u>Housing Project</u></b></a></p>
+    <p>Developed a webmap GUI for a project of my Master's Programme, aimed for any of the Housing Agencies in Lund, since most lack this kind of feature. (Unlicensed <a href='https://gist.github.com/salvah22/e643304a881c5efb8c50ae1c9c2801ba' target='_blank'>dummy data</a>).</p>
+    <p>Using <a href='https://openlayers.org/' target='_blank'><b>OpenLayers</b></a>, <a href='https://www.openstreetmap.org/' target='_blank'><b>OpenStreet Map (OSM)</b></a>, and WMS requests to a <a href='http://geoserver.org/' target='_blank'><b>GeoServer</b></a>.</p>
+    <br>
+    <p><a href='projecthousing.html' target='_blank'><img src='img/housingproj.png' width='100%'></a></p>
+    
+    <br><hr><br>
+
+    <p><b><a href='http://cial.com.ve' target='_blank'><u>CIAL School's website</u></a></b></p>
+    <br>
+    <p>In 2014 wrote a school's website from scratch, and maintained it as the webmaster until 2019.</p>
+    <br>
+
+</div>
+
+<div id='gis_prog' class='divider' style='background-position-y: calc(var(--bg-y-pos) + var(--bg-y-height)); color:#4DD3FF;' onclick='contentCheck(this.id)'> 
+    <a>Geographical Information Systems (GIS)</a>
 </div>
 
 <div id='content_gis_prog' class='content'>
 	<br>
+
 	<img src='img/qgis2.png' height='100'>
     <img src='img/gdal.png' height='100'>
     <img src='img/gee.png' height='100'>
     <img src='img/arcpro.png' height='100'>
 	<br>
-    <p>I lean to open-source tools with <b>bash, python, and QGIS</b>, if I can solve it in the console that's my preferred solution. Experience with <b>ArcGIS, ArcPro, Terrset, SNAP Toolbox, PostGIS (PostgreSQL)</b>, ENVI, and FML.</p>
+    <p>Lean to open-source tools with <b>bash, python, and QGIS</b>, if it can be solved in the console that's my way to go.</p>
+    <p>Experience with <b>ArcGIS, ArcPro, Terrset, SNAP Toolbox, PostGIS (PostgreSQL)</b>, ENVI, and FML.</p>
     <br>
-  	<img src='img/python.png' width='100' height='100'>
   	<img src='img/numpy.png' width='100' height='100'>
   	<img src='img/geopandas.png' width='100' height='100'>
-	<img src='img/r.png' width='100' height='100'>
     <img src='img/scipy.png' width='100' height='100'>
     <img src='img/tf.png' width='100' height='100'>
     <br>
-    <p>I use Python for programmatically solving tedious and repetitive tasks, extracting, transform and loading <b>(ETL)</b> data, <b>object-oriented programming</b>, and <b>data visualization</b>.</p>
-    <p>I can write in <b>Python, JavaSript, R, and Bash</b>. I have employed the following libraries: <b>Numpy, Pandas, Geopandas, Scipy, Sklearn, GDAL, OSR, JSON, ArcPy, geopandas, and shapely</b>. And <b>Keras, Tensorflow, and Pytorch</b> to a lesser extent, among others. I also get my way around spreadsheets.</p>
+    <p>Employ Python for programmatically solving tedious and repetitive tasks, extracting, transform and loading <b>(ETL)</b> data, <b>object-oriented programming</b>, and <b>data visualization</b>.</p>
+    <p>Acquainted with the following libraries: <b>Numpy, Pandas, Geopandas, Scipy, Sklearn, GDAL, OSR, JSON, ArcPy, geopandas, and shapely</b>. And <b>Keras, Tensorflow, and Pytorch</b> to a lesser extent, among others. I also get my way around spreadsheets.</p>
+
     <br><hr><br>
-    <p><b>Master's Thesis: &ldquo;Monitoring wetlands in Sweden using multi-source satellite data and machine learning algorithms&rdquo;</b></p>
-    <br>
-    <p>I developed a whole pipeline workflow for classifying wetlands all over Sweden, using Google Earth Engine (GEE), in Javascript.</p>
+
+    <p><a href='https://github.com/salvah22/wetlands-monitoring-gee' target='_blank'><b><u>Master's Thesis: &ldquo;Monitoring wetlands in Sweden using multi-source satellite data and machine learning algorithms&rdquo;</u></b></a></p>
+    <p>Developed a pipeline workflow for classifying wetlands all over Sweden, using Google Earth Engine (GEE), in Javascript.</p>
     <p>Gathering multi-source multi-temporal imagery, from Sentinel-1 and Sentinel-2 satellites, and combining it with topographical data.</p>
-    <p>Applying a Machine Learning Random Forests classifier.</p>
+    <p>Applying a Machine Learning Random Forests classifier. <a href='https://github.com/salvah22/wetlands-monitoring-gee' target='_blank'>Available at Github.</a></p>
     <br>
-  	<img src='img/koppen_ultimo.png' style='width:400px;cursor:pointer;' onClick='enlargeMe(this)'>
-  	<img src='img/rf_v1.png' style='width:400px;cursor:pointer;' onClick='enlargeMe(this)'>
-    <br>
+    <p>
+        <img src='img/koppen_ultimo.png' style='width:400px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img src='img/rf_v1.png' style='width:400px;cursor:pointer;' onClick='enlargeMe(this)'>
+    </p>
+    
     <hr><br>
-    <p><b><a href='https://github.com/salvah22/koppenclassification' target='_blank'>Project: The prospects of coffee cultivation in South America in a future climate</a></b></p>
+
+    <p><a href='https://github.com/salvah22/koppenclassification' target='_blank'><b><u>Project: The prospects of coffee cultivation in South America in a future climate</u></b></a></p>
+    <p>Developed a group of Python scripts for classifying The Earth's climate zones based on Köppen-Gauger method, averaging climate normals, for global NC files with temperature and precipitation data from two CMIP6 experiments: Historical (1850-2015) and Representative Concentration Pathway (RCP) 8.5 (2015-2100) models. <a href='https://github.com/salvah22/koppenclassification' target='_blank'>Available at Github.</a></p>
     <br>
-    <p>I developed a group of Python scripts for classifying The Earth's climate zones based on Köppen-Gauger method, averaging climate normals, for global NC files with temperature and precipitation data from two CMIP6 experiments: Historical (1850-2015) and Representative Concentration Pathway (RCP) 8.5 (2015-2100) models. <a href='https://github.com/salvah22/koppenclassification' target='_blank'>Available at Github.</a></p>
-    <br>
-    <img src='img/ssp585.png' width='800'>
-    <br>
+    <p><img src='img/ssp585.png' width='800'></p>
+
     <hr><br>
-    <p><b><a href='https://github.com/salvah22/horizonangles' target='_blank'>Project: Horizon Angles (ArcGIS Toolbox)</a></b></p>
+
+    <p><a href='https://github.com/salvah22/horizonangles' target='_blank'><b><u>Project: Horizon Angles (ArcGIS Toolbox)</u></b></a></p>
+    <p>Developed a script that calculates the maximum angular obstruction for each cell on a raster, particularly from a digital elevation model (DEM), recreating functions from GRASS GIS and GDAL, it combines ArcPy. The project required the design of a graphic user interface (GUI) allowing to easily parse parameters between ArcGIS and Python. <a href= 'https://github.com/salvah22/horizonangles' target='_blank'>Available at Github.</a></p>
     <br>
-    <p>I developed a script that calculates the maximum angular obstruction for each cell on a raster, particularly from a digital elevation model (DEM), recreating functions from GRASS GIS and GDAL, it combines ArcPy. The project required the design of a graphic user interface (GUI) allowing to easily parse parameters between ArcGIS and Python. <a href= 'https://github.com/salvah22/horizonangles' target='_blank'>Available at Github.</a></p>
-    <br>
-  	<img src='img/arcgis5.png'>
-  	<img src='img/3.png' width='800'></p>
+    <p>
+        <img src='img/arcgis5.png'>
+        <img src='img/3.png' width='800'></p>
+    </p>
+
     <hr><br>
+    
     <p>My skills in GIS include:<br>Data Management &amp; Harmonization<br>Digitization &amp; georeferencing<br>Remote Sensing &amp; Satellite Imagery<br>Spatial Databases (SQL & PostGIS)<br>Cartography<br>Geostatistics</p>
     <br>
-    <img src='img/arcgis3.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'> <!-- enlargeMe(this) change width style from 200 to 700 -->
-    <img src='img/arcgis1.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-    <img src='img/arcgis2.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-    <img src='img/arcgis4.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-    <img src='img/gearth.jpg' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-    <img src='img/Picture1.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-    <img src='img/Picture3.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-    <img src='img/cartopy.png' style='height:200px;cursor:pointer;' onClick='enlargeMe2(this)'>
-    <img src='img/Rplot13.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-    <img src='img/topo.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+    <p>
+        <img src='img/arcgis3.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'> <!-- enlargeMe(this) change width style from 200 to 700 -->
+        <img src='img/arcgis1.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img src='img/arcgis2.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img src='img/arcgis4.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img src='img/gearth.jpg' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img src='img/Picture1.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img src='img/Picture3.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img src='img/cartopy.png' style='height:200px;cursor:pointer;' onClick='enlargeMe2(this)'>
+        <img src='img/Rplot13.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img src='img/topo.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+    </p>
     <p style='font-size: 0.5em;'>(click images above to increase size)</p>
+    <p><img src='img/map_small.gif'><img src='img/map_legend.png' height=600><img src='img/sql.png'></p>
     <br>
 </div>
 
-<div id='web' class='divider' style='background-position: -8px -81px; color:#9FFB00;' onclick='contentCheck(this.id)'>
-    <a>Web Developing</a>
-</div>
-
-<div id='content_web' class='content'>
-    <br>
-	<img src='img/ol.png' height='100'>
-	<img src='img/html5css3js.png' height='130'>
-	<img src='img/photoshop.png' height='100'>
-	<img src='img/dreamweaver.png' height='100'>
-    <br>
-    <p>Experience Web design and development using <b>HTML, CSS, and JavaScript</b></p>
-    <p>Markup languages <b>XML, KML, GML, and JSON</b></p>
-    <br>
-    <hr><br>
-    <p><b><a href='projecthousing.html' target='_blank'>Housing Project</a></b></p>
-    <br>
-    <p>I developed a webmapping service for a Master's Programme project, using  which could be used by any of the Housing Agencies in Lund; most lack this kind of feature. The whole project was made with <a href='https://gist.github.com/salvah22/e643304a881c5efb8c50ae1c9c2801ba' target='_blank'>dummy data</a>.</p>
-    <p>Using <a href='https://openlayers.org/' target='_blank'>OpenLayers</a>, <a href='https://www.openstreetmap.org/' target='_blank'>OpenStreet Map (OSM)</a>, and WMS requests to a <a href='http://geoserver.org/' target='_blank'>GeoServer</a> hosted in Lund's University.</p>
-    <p>For deploying the OpenLayers (OL) with ES6 JavaScript, I employed <a href='https://www.npmjs.com/' target='_blank'>NPM</a>.</p>
-    <br>
-    <a href='projecthousing.html' target='_blank'><img src='img/housingproj.png' width='100%'></a>
-    <br>
-    <hr><br>
-    <p><b><a href='http://cial.com.ve' target='_blank'>CIAL School's website</a></b></p>
-    <br>
-    <p>In 2014 I wrote a school's website from scratch, and maintained it as the webmaster until 2019.</p>
-    <br>
-</div>
-
-<div id='geophysics' class='divider' style='background-position: -8px -162px; color:#B59F52;' onclick='contentCheck(this.id)'>
+<div id='geophysics' class='divider' style='background-position-y: calc(var(--bg-y-pos) + var(--bg-y-height)*2); color:#f58231;' onclick='contentCheck(this.id)'> <!-- #B59F52 -->
     <a>Geophysics</a>
 </div>
 
@@ -140,7 +188,7 @@
     <p>Fuzzy Logic, Neural Networks &amp; Deep learning algorithms for regression.</p>
     <br>
     <hr><br>
-    <p><b>Bachelor's Thesis: &ldquo;Vp logs prediction from well logs and seismic using ANFIS&rdquo;</b></p>
+    <p><b><u>Bachelor's Thesis: &ldquo;Vp logs prediction from well logs and seismic using ANFIS&rdquo;</u></b></p>
     <br>
     <p>The goal was to infer sonic logs for 27 wells located in a productive basin in Venezuela, using fuzzy logic and neural networks combining radioactive and resistive logs, with different seismic attributes resampled and extracted from a seismic cube, as input for the neuro-fuzzy (machine learning) regressor. The generated maps showed the expected low p-wave velocity behavior for most of the geologic horizons around each currently active well. And the accuracies </p>
     <p>For the project we employed <b>OpendTect Neural Networks module, MATLAB ANFIS</b> (Adaptative Neuro-Fuzzy Inference System) for training the fuzzy sets, <b>SegyMat</b> library for reading traces and <b>Oasis Montaj</b> for data management.</p>
@@ -152,49 +200,30 @@
 </div>
 
 
-<div id='sql' class='divider' style='background-position: -8px -243px; color:#579EFF;' onclick='contentCheck(this.id)'>
-  	<a>SQL</a>
-</div>
-
-<div id='content_sql' class='content'>
-    <br>
- 	<img src='img/postgre.png' width='100' height='100'>
-    <img src='img/postgis.png' width='100' height='100'>
-    <br>
-    <p>During my Master's I've hands-on learned and employed <b>SQL</b> (Structured Query Language), Spatial Databases (<b>PostGIS</b>), <b>PostgreSQL</b>, MySQL, pgAdmin, database modelling and design (UML)</p>
-    <br>
-  	<p><img src='img/map_small.gif'><img src='img/map_legend.png' height=600><img src='img/sql.png'></p>
-    <br>
-
-</div>
-
-<div id='personal' class='divider' style='background-position: -8px -324px; color:#FFCC33;' onclick='contentCheck(this.id)'>
+<div id='personal' class='divider' style='background-position-y: calc(var(--bg-y-pos) + var(--bg-y-height)*3); color:#FFCC33;' onclick='contentCheck(this.id)'>
     <a>Personal/hobby projects</a>
 </div>
 
 <div id='content_personal' class='content'>
     <br>
-    <p><b>Arch User Repository (AUR) Maintainer</b></p>
-    <br>
-    <p>I'm currently maintaining a couple of packages for the Arch Linux community: <a href='https://aur.archlinux.org/packages/pktools/' target='_blank'>pktools</a> &amp; <a href='https://aur.archlinux.org/packages/windscribe-cli/' target='_blank'>Windscribe-cli</a></p>
-    <p>For this purpose I do web-scrapping, employing <a href='https://www.crummy.com/software/BeautifulSoup/bs4/doc/' target='_blank'>BeautifulSoup</a> library to automatically check <a href='https://gist.github.com/salvah22/07fe98657e28d5b89f02f45188f76614' target='_blank'>with a python script</a> for new updates every time my laptop boots.</p>
-    <br>
-    <hr><br>
-    <p><b><a href='https://www.kaggle.com/c/widsdatathon2022/' target='_blank'>Woman in Data Science (WiDS) Datathon 2022</a></b></p>
-    <br>
-    <p>I team-up with three friends to participate in a Kaggle competition. And even though we were not even close to win, it resulted a very enriching experience. <a href='https://gist.github.com/salvah22/9dfcbea29138534212c0831a002018d1' target='_blank'>Github Gist.</a></p>
+    <p><b><u>Arch User Repository (AUR) Maintainer</u></b></p>
+    <p>Currently maintaining a couple of packages for the Arch Linux community: <a href='https://aur.archlinux.org/packages/pktools/' target='_blank'>pktools</a> &amp; <a href='https://aur.archlinux.org/packages/windscribe-cli/' target='_blank'>Windscribe-cli</a></p>
+    <p>For this purpose web-scrapping was the way to go, employing <a href='https://www.crummy.com/software/BeautifulSoup/bs4/doc/' target='_blank'>BeautifulSoup</a> library to automatically check <a href='https://gist.github.com/salvah22/07fe98657e28d5b89f02f45188f76614' target='_blank'>with a python script</a> for new updates every time my laptop boots.</p>
     <br>
     <hr><br>
-    <p><b><a href='https://gist.github.com/salvah22/b1418cb71e9d51ca332a9d8d7c82bf5a' target='_blank'>Google Keep Takeout</a></b></p>
+    <p><a href='https://www.kaggle.com/c/widsdatathon2022/' target='_blank'><b><u>Woman in Data Science (WiDS) Datathon 2022</u></b></a></p>
+    <p>Team'ed-up with three friends to participate in a Kaggle competition. And even though we were not close to win, it resulted a very enriching experience. <a href='https://gist.github.com/salvah22/9dfcbea29138534212c0831a002018d1' target='_blank'>Github Gist.</a></p>
     <br>
+    <hr><br>
+    <p><a href='https://gist.github.com/salvah22/b1418cb71e9d51ca332a9d8d7c82bf5a' target='_blank'><b><u>Google Keep Takeout</u></b></a></p>
     <p>A simple script for simplifying Google keep notes takeout from JSON to TXT</p>
     <br>
 </div>
 
-<div class='wrapper' style='text-align:center;'>
-    <a href='https://github.com/salvah22/' target='_blank'><img src='img/github.png' width='216' height='216'></a>
-    <a href='https://www.linkedin.com/in/salvadorhernandezmalave/' target='_blank'><img src='img/linkedin.png' width='216' height='216'></a>
-    <a href='mailto:salvadorhernandezmalave@gmail.com' target='_blank'><img src='img/email.png' width='216' height='216'></a>
+<div class='wrapper'>
+    <a href='https://github.com/salvah22/' target='_blank'><img src='img/github.png' height='150' style="margin:10px;"></a>
+    <a href='https://www.linkedin.com/in/salvadorhernandezmalave/' target='_blank'><img src='img/linkedin.png' height='150' style="margin:10px;"></a>
+    <a href='mailto:salvadorhernandezmalave@gmail.com' target='_blank'><img src='img/email.png' height='150' style="margin:10px;"></a>
 </div>
 </body>
 </html>

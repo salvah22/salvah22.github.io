@@ -26,7 +26,13 @@
   src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v13/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
+
 /* === Template === */
+:root {
+    --bg-y-pos: -24px;
+    --bg-y-height: -128px;
+    --bg-y-height2: -81px;
+}
 * {
 	margin:0;
 	padding:0;
@@ -39,6 +45,10 @@ body {
 	font-size: 2em;
 	color:#FFF;
 	font-weight: bold;
+    background: #000000;
+}
+p {
+    margin-bottom: 10px;
 }
 strong, b {
     font-weight: bold;
@@ -52,27 +62,26 @@ div {
 a, a:visited {
 	text-decoration: none;
 }
+.divider {
+	background-image: url("img/back.jpg");
+    background-position-x: center;
+	text-align:center;
+	height: 83px/*calc(-1 * var(--bg-y-height2))*/;
+	padding-top:40px;
+	cursor:pointer;
+}
 #header {
 	background-image: url("img/back.jpg");
-	background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-position: -8px 0px;
-	padding width:100%;
+    justify-content: center;
+    background-position-x: center;
+    background-position-y: var(--bg-y-pos);
 	font-size:1.5em;
 	}
 .wrapper {
-    background: #000000;
 	text-decoration:none;
     text-align:center;
     padding-top:20px;
     padding-bottom:20px;
-}
-.divider {
-	background-image: url("img/back.jpg");
-	text-align:right;
-	height:56px;
-	padding-top:20px;
-	cursor:pointer;
 }
 .divider a {
 	background: #000000;
@@ -104,6 +113,7 @@ a, a:visited {
 	float: left;
 	width:auto;
     cursor:pointer;
+    background: #000000;
 }
 /*Define the keyframe animation and name it blink*/
 @keyframes blink{

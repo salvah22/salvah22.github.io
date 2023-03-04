@@ -1,0 +1,21 @@
+currencies: ['USD','EUR','GBP']
+
+default_subset: 'Expenses' # choices: 'Income', 'Expenses', 'Transfer in', 'Transfer out', 'All'
+
+columns: # those in the data file
+  - 'Day' # not optional. ISO date (or datetime) format
+  - 'Accounts'
+  - 'Income/Expenses'
+  - 'Category'
+  - 'Note'
+  - 'Detail'
+
+fonts:
+  f08: 'sans-serif, 8'
+  f10: 'sans-serif, 10'
+  f12: 'sans-serif, 12'
+
+colors:
+  green: '#91BF2C'
+  blue: '#00ABFF'
+  red: '#FF614F'

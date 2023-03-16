@@ -105,6 +105,9 @@ class App:
             self.show_balances()
             self.update_groupby_win('Category')
             self.initiated = True
+            self.tk_elems['main_app'].tk.call('source', 'src/configs/forest-dark.tcl')
+            # Set the theme with the theme_use method
+            ttk.Style().theme_use('forest-dark')
             self.tk_elems['main_app'].mainloop()
 
 
@@ -168,9 +171,9 @@ class App:
         self.tk_elems['frame_header'] = tk.Frame(self.tk_elems['main_app'], borderwidth=0)
         self.tk_elems['frame_header'].pack(expand=True)
         ### Period frames
-        self.tk_elems['button_last'] = tk.Button(self.tk_elems['frame_header'], text='Today', height=2, command=lambda: self.move_time_window('today'), font=self.config['fonts']['f12'], bg=self.config['colors']['green'])
+        self.tk_elems['button_last'] = ttk.Button(self.tk_elems['frame_header'], text='Today', command=lambda: self.move_time_window('today'))
         self.tk_elems['button_last'].pack(side=tk.LEFT, fill=tk.Y)
-        self.tk_elems['button_today'] = tk.Button(self.tk_elems['frame_header'], text='First', height=2, command=lambda: self.move_time_window('last'), font=self.config['fonts']['f12'])
+        self.tk_elems['button_today'] = ttk.Button(self.tk_elems['frame_header'], text='First', command=lambda: self.move_time_window('last') )
         self.tk_elems['button_today'].pack(side=tk.LEFT, fill=tk.Y)
         self.tk_elems['frame_period'] = tk.Frame(self.tk_elems['frame_header'], borderwidth=0)
         self.tk_elems['frame_period'].pack(expand=True, side=tk.LEFT, fill=tk.Y)
@@ -178,15 +181,15 @@ class App:
         self.tk_elems['frame_period_alter'].pack(expand=True, side=tk.TOP, fill=tk.Y)
         self.tk_elems['start_date'] = tk.StringVar()
         self.tk_elems['end_date'] = tk.StringVar()
-        self.tk_elems['button_backwards'] = tk.Button(self.tk_elems['frame_period_alter'], text='◄', command=lambda: self.move_time_window('backwards'), font=self.config['fonts']['f12'], height=1)
+        self.tk_elems['button_backwards'] = ttk.Button(self.tk_elems['frame_period_alter'], text='◄', command=lambda: self.move_time_window('backwards'))
         self.tk_elems['button_backwards'].pack(side=tk.LEFT, fill=tk.BOTH)
-        self.tk_elems['entry_date_start'] = tk.Entry(self.tk_elems['frame_period_alter'], textvariable=self.tk_elems['start_date'], font=self.config['fonts']['f12'], width=15, justify='center')
+        self.tk_elems['entry_date_start'] = tk.Entry(self.tk_elems['frame_period_alter'], textvariable=self.tk_elems['start_date'],justify='center')
         self.tk_elems['entry_date_start'].pack(side=tk.LEFT, fill=tk.Y, expand=True)
         self.tk_elems['entry_date_start'].bind('<Return>', lambda event: self.on_entry_change('start'))
-        self.tk_elems['entry_date_end'] = tk.Entry(self.tk_elems['frame_period_alter'], textvariable=self.tk_elems['end_date'], font=self.config['fonts']['f12'], width=15, justify='center')
+        self.tk_elems['entry_date_end'] = tk.Entry(self.tk_elems['frame_period_alter'], textvariable=self.tk_elems['end_date'], justify='center')
         self.tk_elems['entry_date_end'].pack(side=tk.LEFT, fill=tk.Y, expand=True)
         self.tk_elems['entry_date_end'].bind('<Return>', lambda event: self.on_entry_change('end'))
-        self.tk_elems['button_onwards'] = tk.Button(self.tk_elems['frame_period_alter'], text='►', command=lambda: self.move_time_window('onwards'), font=self.config['fonts']['f12'], height=1)
+        self.tk_elems['button_onwards'] = ttk.Button(self.tk_elems['frame_period_alter'], text='►', command=lambda: self.move_time_window('onwards'))
         self.tk_elems['button_onwards'].pack(side=tk.LEFT, fill=tk.BOTH)
         self.tk_elems['frame_DMY'] = tk.Frame(self.tk_elems['frame_period'], borderwidth=0)
         self.tk_elems['frame_DMY'].pack(expand=True, side=tk.BOTTOM, fill=tk.Y)
@@ -199,13 +202,13 @@ class App:
         self.tk_elems['period_years'].set('0')
 
         tk.Label(self.tk_elems['frame_DMY'], text=" Days ", font=self.config['fonts']['f10']).pack(side=tk.LEFT)
-        self.tk_elems['spinbox_period_days'] = tk.Spinbox(self.tk_elems['frame_DMY'], textvariable=self.tk_elems['period_days'], from_=0, to=31, increment=1, width=3, font=self.config['fonts']['f10'])
+        self.tk_elems['spinbox_period_days'] = tk.Spinbox(self.tk_elems['frame_DMY'], textvariable=self.tk_elems['period_days'], from_=0, to=31, increment=1)
         self.tk_elems['spinbox_period_days'].pack(side=tk.LEFT, fill=tk.Y, expand=True)
         tk.Label(self.tk_elems['frame_DMY'], text="   Months ", font=self.config['fonts']['f10']).pack(side=tk.LEFT)
-        self.tk_elems['spinbox_period_months'] = tk.Spinbox(self.tk_elems['frame_DMY'], textvariable=self.tk_elems['period_months'], from_=0, to=10, increment=1, width=3, font=self.config['fonts']['f10'])
+        self.tk_elems['spinbox_period_months'] = tk.Spinbox(self.tk_elems['frame_DMY'], textvariable=self.tk_elems['period_months'], from_=0, to=10, increment=1)
         self.tk_elems['spinbox_period_months'].pack(side=tk.LEFT, fill=tk.Y, expand=True)
         tk.Label(self.tk_elems['frame_DMY'], text="   Years ", font=self.config['fonts']['f10']).pack(side=tk.LEFT)
-        self.tk_elems['spinbox_period_years'] = tk.Spinbox(self.tk_elems['frame_DMY'], textvariable=self.tk_elems['period_years'], from_=0, to=10, increment=1, width=3, font=self.config['fonts']['f10'])
+        self.tk_elems['spinbox_period_years'] = tk.Spinbox(self.tk_elems['frame_DMY'], textvariable=self.tk_elems['period_years'], from_=0, to=10, increment=1)
         self.tk_elems['spinbox_period_years'].pack(side=tk.LEFT, fill=tk.Y, expand=True)
 
         #▲▼
@@ -215,26 +218,22 @@ class App:
         self.tk_elems['frame_in_out'].pack(expand=True, side=tk.LEFT, fill=tk.BOTH)
         self.tk_elems['frame_in_out'].columnconfigure(tuple(range(2)), weight=1)
         self.tk_elems['frame_in_out'].rowconfigure(tuple(range(2)), weight=1)
-        self.tk_elems['button_income'] = tk.Button(self.tk_elems['frame_in_out'], text='Income', width=4, height=1,
-                                                  command=lambda: self.update_subset('inout_Income'),
-                                                  font=self.config['fonts']['f10'], bg=self.config['colors']['blue'])
+        self.tk_elems['button_income'] = ttk.Button(self.tk_elems['frame_in_out'], text='Income', 
+                                                  command=lambda: self.update_subset('inout_Income'))
         self.tk_elems['button_income'].grid(row=0, column=0, sticky="nswe")
-        self.tk_elems['button_expenses'] = tk.Button(self.tk_elems['frame_in_out'], text='Expenses', width=4, height=1,
-                                                  command=lambda: self.update_subset('inout_Expenses'),
-                                                  font=self.config['fonts']['f10'], bg=self.config['colors']['red'])
+        self.tk_elems['button_expenses'] = ttk.Button(self.tk_elems['frame_in_out'], text='Expenses',
+                                                  command=lambda: self.update_subset('inout_Expenses'))
         self.tk_elems['button_expenses'].grid(row=1, column=0, sticky="nswe")
-        self.tk_elems['button_transfers'] = tk.Button(self.tk_elems['frame_in_out'], text='Transfer', width=4, height=1,
-                                                  command=lambda: self.update_subset('inout_Transfer'),
-                                                  font=self.config['fonts']['f10'])
+        self.tk_elems['button_transfers'] = ttk.Button(self.tk_elems['frame_in_out'], text='Transfer',
+                                                  command=lambda: self.update_subset('inout_Transfer'))
         self.tk_elems['button_transfers'].grid(row=0, column=1, sticky="nswe")
-        self.tk_elems['button_all'] = tk.Button(self.tk_elems['frame_in_out'], text='All', width=4, height=1,
-                                                  command=lambda: self.update_subset('inout_All'),
-                                                  font=self.config['fonts']['f10'])
+        self.tk_elems['button_all'] = ttk.Button(self.tk_elems['frame_in_out'], text='All',
+                                                  command=lambda: self.update_subset('inout_All'))
         self.tk_elems['button_all'].grid(row=1, column=1, sticky="nswe")
         ### GROUPING
         self.tk_elems['frame_groups'] = tk.Frame(self.tk_elems['frame_header'], padx=5, pady=5) # , highlightbackground="black", highlightthickness=2
         self.tk_elems['frame_groups'].pack(expand=True)
-        tk.Label(self.tk_elems['frame_groups'], text="Grouping", font=self.config['fonts']['f10']).pack(side=tk.TOP)
+        tk.Label(self.tk_elems['frame_groups'], text="Grouping").pack(side=tk.TOP)
         self.tk_elems['group'] = tk.StringVar()
         self.tk_elems['group'].set("None") # default value
         self.tk_elems['group_opt_menu'] = tk.OptionMenu(self.tk_elems['frame_groups'], self.tk_elems['group'], "None", "Day", "Month", "Year", command=self.group_change)

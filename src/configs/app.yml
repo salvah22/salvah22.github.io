@@ -16,6 +16,6 @@ fonts:
   f12: 'sans-serif, 12'
 
 colors:
-  green: '#91BF2C'
-  blue: '#00ABFF'
+  green: '#0059B3'
+  blue: '#0059B3'
   red: '#FF614F'

@@ -1,3 +1,5 @@
+from modules.treewindow import *
+
 from tkinter import ttk
 import tkinter as tk
 import pandas as pd
@@ -13,27 +15,16 @@ from matplotlib.figure import Figure
 
 from utils.tk_inter import treeview_sort_column
 
-class groupwindow:
 
-    def _quit(self):
-        # self.win.quit()     # stops mainloop
-        self.win.destroy()  # this is necessary on Windows to prevent
-                            # Fatal Python Error: PyEval_RestoreThread: NULL tstate
-        self.win.update()
+class groupwindow(treewindow):
 
     def __init__(self, app, icon=None):
+        super(groupwindow, self).__init__(icon)
         self.tree_records = 15
         self.parent = app
-        self.initiated = None
-        self.tree_frame = None
         self.canvas_frame = None
         self.combined_frame = None
         self.footer_frame = None
-        self.dataframe = None
-        self.position = None
-        self.title = None
-        self.win = None
-        self.icon = icon
 
     def update(self, dataframe: pd.DataFrame, fig, title:str=None, position:list=None, headings=True):
         self.initiated = True
@@ -42,9 +33,6 @@ class groupwindow:
         self.position = position
         self.fig = fig
         self.updateTk(title)
-
-    def setDataFrame(self, dataframe):
-        self.dataframe = dataframe
 
     def updateTk(self,title):
         

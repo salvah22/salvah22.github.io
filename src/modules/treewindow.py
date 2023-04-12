@@ -69,8 +69,11 @@ class treewindow:
         if self.tree_frame is not None:
             self.tree_frame.destroy()
 
+        self.win.grid_rowconfigure(0, weight=1)
+        self.win.grid_columnconfigure(0, weight=1)
+
         self.tree_frame = tk.Frame(self.win, borderwidth=0)
-        self.tree_frame.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+        self.tree_frame.grid(column=0, row=0, sticky="nsew")
 
         # treeview
         if self.headings:
@@ -78,7 +81,7 @@ class treewindow:
         else:
             self.tree = ttk.Treeview(self.tree_frame, style="mystyle.Treeview", columns=list(self.dataframe.columns), height=self.dataframe.shape[0], show='tree')
 
-        self.tree.pack(side=tk.LEFT, expand=True)
+        self.tree.pack(side=tk.LEFT, expand=True, fill=tk.BOTH)
 
         if scrollbar_bool:
             scrollbar = ttk.Scrollbar(self.tree_frame, orient=tk.VERTICAL, command=self.tree.yview)
@@ -86,7 +89,7 @@ class treewindow:
             scrollbar.pack(side=tk.LEFT, fill=tk.Y)
 
         for colname in (self.dataframe.columns):
-            self.tree.column(colname, anchor='center', width=130, stretch=tk.NO)
+            self.tree.column(colname, anchor='center', width=130, stretch=tk.YES)
             if self.headings:
                 self.tree.heading(colname, text=colname, anchor='center', command=lambda _col=colname: treeview_sort_column(self.tree, _col, False))
 

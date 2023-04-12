@@ -11,8 +11,8 @@ python3 src/main.py '/path/to/data.xlsx'
 * A graphical user interface for navigating through your multi-account movements (Expenses, Income, Transfers, etc..), change the period you want to visualize, show per-category totals, and display only the type of transactions you are interested in with just a click.
 * Seamless displaying, grouping and filtering of the data 
 
-![scrsh1](.github/img/Y-03-04_17-29-10.png)
-![scrsh2](.github/img/Y-03-04_17-29-25.png)
+![scrsh1](.github/img/Y-04-12_17-58-13.png)
+![scrsh2](.github/img/Y-04-12_17-59-52.png)
 
 * SOON: tools to clean / manipulate your data, adding records
 

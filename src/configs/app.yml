@@ -10,6 +10,8 @@ columns: # those in the data file
   - 'Note'
   - 'Detail'
 
+hidden_balances: ['Jar', 'Savings', 'Stocks']
+
 fonts:
   f08: 'sans-serif, 8'
   f10: 'sans-serif, 10'

@@ -7,7 +7,7 @@ from typing import List
 
 from utils.tk_inter import treeview_sort_column
 
-class treewindow:
+class Treewindow:
 
     def _quit(self):
         # self.win.quit()     # stops mainloop
@@ -22,6 +22,8 @@ class treewindow:
         self.position = None
         self.title = None
         self.win = None
+        self.headings = None
+        self.tree = None
         self.icon = icon
 
     def close(self):
@@ -31,7 +33,7 @@ class treewindow:
     def update(self, dataframe: pd.DataFrame, title:str=None, position:list=None, headings=True):
         self.initiated = True
         self.headings = headings
-        self.setDataFrame(dataframe)
+        self.set_data_frame(dataframe)
         if self.win is None or not self.win.winfo_exists():
             self.win = tk.Toplevel()
             self.win.bind('<Escape>', lambda e: self._quit())
@@ -41,12 +43,12 @@ class treewindow:
         if self.title is not None:
             self.win.wm_title(title)
         self.position = position
-        self.updateTk()
+        self.update_tk()
 
-    def setDataFrame(self, dataframe):
+    def set_data_frame(self, dataframe):
         self.dataframe = dataframe
 
-    def updateTk(self):
+    def update_tk(self):
 
         # look
         width = 130 * self.dataframe.shape[1]
@@ -93,9 +95,9 @@ class treewindow:
             if self.headings:
                 self.tree.heading(colname, text=colname, anchor='center', command=lambda _col=colname: treeview_sort_column(self.tree, _col, False))
 
-        self.updateTreeRecords()
+        self.update_tree_records()
 
-    def updateTreeRecords(self, columns: List[str] = []):
+    def update_tree_records(self, columns: List[str] = []):
         self.tree.delete(*self.tree.get_children()) # delete data for next rendering)
 
         if columns == []:

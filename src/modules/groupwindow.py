@@ -1,4 +1,4 @@
-from modules.treewindow import *
+from modules.treewindow import Treewindow
 
 from tkinter import ttk
 import tkinter as tk
@@ -7,8 +7,7 @@ import numpy as np
 
 from typing import List
 
-from matplotlib.backends.backend_tkagg import (
-    FigureCanvasTkAgg, NavigationToolbar2Tk)
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 # Implement the default Matplotlib key bindings.
 from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
@@ -16,7 +15,7 @@ from matplotlib.figure import Figure
 from utils.tk_inter import treeview_sort_column
 
 
-class groupwindow(treewindow):
+class Groupwindow(Treewindow):
 
     def __init__(self, app, icon=None):
         super().__init__(icon)
@@ -25,11 +24,12 @@ class groupwindow(treewindow):
         self.canvas_frame = None
         self.combined_frame = None
         self.footer_frame = None
+        self.win = None
 
     def update(self, dataframe: pd.DataFrame, fig, title:str=None, position:list=None, headings=True):
         self.initiated = True
         self.headings = headings
-        self.setDataFrame(dataframe)
+        self.set_data_frame(dataframe)
         self.position = position
         self.fig = fig
         self.updateTk(title)

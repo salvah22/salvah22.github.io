@@ -1,18 +1,19 @@
-import os, sys
+import sys
 import pandas as pd
 import numpy as np
+from os import path
 
-def data_loader(path: str):
+def data_loader(fp: str):
     """
     Function for loading inputs with a variety of extensions with the proper pandas read function
     """
 
-    parent, file = os.path.split(path)
-    file_name, file_ext = os.path.splitext(file)
+    _, f = path.split(fp)
+    _, file_ext = path.splitext(f)
     if file_ext == '.xlsx':
-        df = pd.read_excel(path)
+        df = pd.read_excel(fp)
     elif file_ext == '.csv':
-        df = pd.read_csv(path)
+        df = pd.read_csv(fp)
     else:
         sys.exit('data_path extension not supported')
         

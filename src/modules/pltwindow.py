@@ -1,37 +1,33 @@
+'''
+tk toplevel window wrapping a matplotlib figure
+'''
 
-import tkinter as tk
-
-from matplotlib.backends.backend_tkagg import (
-    FigureCanvasTkAgg, NavigationToolbar2Tk)
-# Implement the default Matplotlib key bindings.
-from matplotlib.backend_bases import key_press_handler
-from matplotlib.figure import Figure
-
+from tkinter import BOTH, TOP, Toplevel, Frame
 import numpy as np
 
+from modules.window import Window
 
-class pltwindow:
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-    def _quit(self):
-        # self.win.quit()     # stops mainloop
-        self.win.destroy()  # this is necessary on Windows to prevent
-                            # Fatal Python Error: PyEval_RestoreThread: NULL tstate
-        self.win.update()
+class pltwindow(Window):
+    '''
+    tk toplevel window wrapping a matplotlib figure
+    '''
 
     def __init__(self, icon=None):
+        super().__init__()
         self.initiated = None
         self.canvas_frame = None
-        self.win = None
         self.icon = icon
 
     def initTk(self, fig, title:str=None):
         self.initiated = True
 
-        if self.win is None:
-            self.win = tk.Toplevel()
-            self.win.bind('<Escape>', lambda e: self._quit())
+        if self.main is None:
+            self.main = Toplevel()
+            self.main.bind('<Escape>', lambda e: self._quit())
             if self.icon is not None:
-                self.win.tk.call('wm', 'iconphoto', self.win._w, self.icon)
+                self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)
 
         # if the frame exists, detroy it
         if self.canvas_frame is not None:
@@ -40,11 +36,11 @@ class pltwindow:
             #     self.canvas.get_tk_widget().delete(item)
 
         if title is not None:
-            self.win.wm_title(title)
+            self.main.wm_title(title)
 
-        self.canvas_frame = tk.Frame(self.win, borderwidth=0)
-        self.canvas_frame.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-        canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)  # A tk.DrawingArea.
+        self.canvas_frame = Frame(self.main, borderwidth=0)
+        self.canvas_frame.pack(side=TOP, fill=BOTH, expand=1)
+        canvas = FigureCanvasTkAgg(fig, master=self.canvas_frame)
         canvas.draw()
-        canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+        canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
 

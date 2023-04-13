@@ -8,26 +8,28 @@ Last Edit: February 2023
 
 from tkinter.messagebox import showinfo
 
-import sys, yaml, os
+import sys
+import yaml
+from os import path
 import datetime
 from dateutil.relativedelta import relativedelta
-import tkinter as tk
-from tkinter import filedialog
+
 from tkinter import ttk
 
 # extra libraries
 import pandas as pd
+import matplotlib.pyplot as plt
 
-# own utils
-from utils.time import parse_period
-from utils.data import *
-from utils.graph import *
-from utils.tk_inter import *
-
+# own modules
 from modules.mainwindow import Mainwindow
 from modules.groupwindow import Groupwindow
 from modules.treewindow import Treewindow
 
+# own utils
+from utils.time import parse_period
+from utils.data import data_loader, data_prepare, get_last_balance_per_account, year_month_from_iso, year_from_iso
+from utils.graph import pie_chart
+from utils.tk_inter import update_tree_records, update_tree_structure
 
 class App:
     """
@@ -41,9 +43,9 @@ class App:
         self.initiated = False
         ### parameters ###
         # load config file
-        if config_path and os.path.exists(config_path):
+        if config_path and path.exists(config_path):
             pass
-        elif os.path.exists('src'):
+        elif path.exists('src'):
             config_path = 'src/configs/app.yml'
         else:
             print('cannot locate app.yml config file')
@@ -58,12 +60,12 @@ class App:
         ### load data ###
         # locate input data to load as dataframe
         if data_path:
-            if os.path.exists(data_path):
+            if path.exists(data_path):
                 self.data_path = data_path
             else:
                 print('file path supplied via data_path arg is not valid')
         elif len(sys.argv) > 1:
-            if os.path.exists(sys.argv[1]):
+            if path.exists(sys.argv[1]):
                 self.data_path = sys.argv[1]
             else:
                 print('file path supplied via sys.argv is not valid')
@@ -81,7 +83,7 @@ class App:
         ### tk inter gui ###
         if tk:
             # self.init_tk()
-            self.main = Mainwindow(self, self.config, 'src/resources/favicon.png', 'src/configs/forest-dark.tcl')
+            self.main = Mainwindow(self, self.config, 'src/resources/favicon.png', 'forest-dark')
             plt.rcParams['figure.facecolor'] = self.main.style_bg_col
             self.balances_win = Treewindow(icon=self.main.icon)
             self.groupby_win = Groupwindow(self, self.main.icon)

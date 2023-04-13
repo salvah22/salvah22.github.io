@@ -1,3 +1,7 @@
+'''
+tk toplevel window wrapping a treeview
+'''
+
 from tkinter import ttk
 import tkinter as tk
 import pandas as pd
@@ -5,43 +9,42 @@ import numpy as np
 
 from typing import List
 
+from modules.window import Window
+
 from utils.tk_inter import treeview_sort_column
 
-class Treewindow:
-
-    def _quit(self):
-        # self.win.quit()     # stops mainloop
-        self.win.destroy()  # this is necessary on Windows to prevent
-                            # Fatal Python Error: PyEval_RestoreThread: NULL tstate
-        self.win.update()
+class Treewindow(Window):
+    '''
+    tk toplevel window wrapping a treeview
+    '''
 
     def __init__(self, icon=None):
+        super().__init__()
         self.initiated = None
         self.tree_frame = None
         self.dataframe = None
         self.position = None
         self.title = None
-        self.win = None
         self.headings = None
         self.tree = None
         self.icon = icon
 
     def close(self):
         if self.initiated:
-            self.win.destroy()
+            self.main.destroy()
 
     def update(self, dataframe: pd.DataFrame, title:str=None, position:list=None, headings=True):
         self.initiated = True
         self.headings = headings
         self.set_data_frame(dataframe)
-        if self.win is None or not self.win.winfo_exists():
-            self.win = tk.Toplevel()
-            self.win.bind('<Escape>', lambda e: self._quit())
+        if self.main is None or not self.main.winfo_exists():
+            self.main = tk.Toplevel()
+            self.main.bind('<Escape>', lambda e: self._quit())
             if self.icon is not None:
-                self.win.tk.call('wm', 'iconphoto', self.win._w, self.icon)
+                self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)
         self.title = title
         if self.title is not None:
-            self.win.wm_title(title)
+            self.main.wm_title(title)
         self.position = position
         self.update_tk()
 
@@ -63,18 +66,18 @@ class Treewindow:
             height = 30 * self.dataframe.shape[0] + 25 # 30 per row + 25 margin
 
         if self.position is not None:
-            self.win.geometry(f'{width}x{height}+{self.position[0]}+{self.position[1]}') # (width, height, x, y)
+            self.main.geometry(f'{width}x{height}+{self.position[0]}+{self.position[1]}') # (width, height, x, y)
         else:
-            self.win.geometry(f'{width}x{height}')
+            self.main.geometry(f'{width}x{height}')
         
         # frame
         if self.tree_frame is not None:
             self.tree_frame.destroy()
 
-        self.win.grid_rowconfigure(0, weight=1)
-        self.win.grid_columnconfigure(0, weight=1)
+        self.main.grid_rowconfigure(0, weight=1)
+        self.main.grid_columnconfigure(0, weight=1)
 
-        self.tree_frame = tk.Frame(self.win, borderwidth=0)
+        self.tree_frame = tk.Frame(self.main, borderwidth=0)
         self.tree_frame.grid(column=0, row=0, sticky="nsew")
 
         # treeview

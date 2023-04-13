@@ -1,21 +1,23 @@
-from modules.treewindow import Treewindow
+'''
+tk toplevel window wrapping both a treeview and a matplotlib figure
+'''
+
+from typing import List
 
 from tkinter import ttk
 import tkinter as tk
 import pandas as pd
-import numpy as np
-
-from typing import List
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-# Implement the default Matplotlib key bindings.
-from matplotlib.backend_bases import key_press_handler
-from matplotlib.figure import Figure
+
+from modules.treewindow import Treewindow
 
 from utils.tk_inter import treeview_sort_column
 
-
 class Groupwindow(Treewindow):
+    '''
+    tk toplevel window wrapping both a treeview and a matplotlib figure
+    '''
 
     def __init__(self, app, icon=None):
         super().__init__(icon)
@@ -24,6 +26,8 @@ class Groupwindow(Treewindow):
         self.canvas_frame = None
         self.combined_frame = None
         self.footer_frame = None
+        self.tree_frame = None
+        self.tree = None
         self.win = None
 
     def update(self, dataframe: pd.DataFrame, fig, title:str=None, position:list=None, headings=True):

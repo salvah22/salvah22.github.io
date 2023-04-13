@@ -5,7 +5,6 @@ tk toplevel window wrapping a treeview
 from tkinter import ttk
 import tkinter as tk
 import pandas as pd
-import numpy as np
 
 from typing import List
 
@@ -87,6 +86,8 @@ class Treewindow(Window):
             self.tree = ttk.Treeview(self.tree_frame, style="mystyle.Treeview", columns=list(self.dataframe.columns), height=self.dataframe.shape[0], show='tree')
 
         self.tree.pack(side=tk.LEFT, expand=True, fill=tk.BOTH)
+        # self.tree.bind("<Button-3>", self.do_popup)
+        self.tree.bind("<Double-Button-1>", self.do_popup)
 
         if scrollbar_bool:
             scrollbar = ttk.Scrollbar(self.tree_frame, orient=tk.VERTICAL, command=self.tree.yview)
@@ -109,5 +110,23 @@ class Treewindow(Window):
         for row in self.dataframe[columns].to_numpy():
             self.tree.insert("", 0, values=row.tolist())
 
+    def do_popup(self, event):
+        popup = Popup(self.main)
+        iid = self.tree.identify_row(event.y)
+        try:
+            popup.tk_popup(event.x_root, event.y_root)
+
+            if iid:
+                self.tree.selection_set(iid)
+                print(self.tree.item(iid, 'values'))
+                # df_idx = int(self.tree.item(iid, 'values')[0])
+
+        finally:
+            popup.grab_release()
 
 
+class Popup(tk.Menu):
+    def __init__(self, master):
+        tk.Menu.__init__(self, master, tearoff=0)
+        self.add_command(label="Filter with", command=lambda: print("holas"))
+        self.bind("<FocusOut>", lambda x: self.destroy())

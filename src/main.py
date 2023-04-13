@@ -1,7 +1,7 @@
 """
 Money Manager software developed by Salvador Hernández
 Created: September 2022
-Last Edit: February 2023
+Changed: April 2023
 """
 
 # standard python libraries
@@ -216,7 +216,7 @@ class App:
 
 
     def on_double_click(self, event):
-        tree_idx = self.main.tree_main.identify('item', event.x, event.y)
+        tree_idx = self.main.tree_main.identify_row(event.y) # self.main.tree_main.identify('item', event.x, event.y)
         df_idx = int(self.main.tree_main.item(tree_idx, 'values')[0]) # formerly (tree_idx, 'text') when Row was supplied
         
         self.details.update(

@@ -24,6 +24,7 @@ import matplotlib.pyplot as plt
 from modules.mainwindow import Mainwindow
 from modules.groupwindow import Groupwindow
 from modules.treewindow import Treewindow
+from modules.filterswin import Filterswindow
 
 # own utils
 from utils.time import parse_period
@@ -79,21 +80,25 @@ class App:
         self.config['columns'].insert(0, 'Row')
         self.config['columns'].append('AccountBalance')
         self.config['display_columns'] = self.config['columns']
+        self.filters_list = []
 
         ### tk inter gui ###
         if tk:
             # self.init_tk()
             self.main = Mainwindow(self, self.config, 'src/resources/favicon.png', 'forest-dark')
             plt.rcParams['figure.facecolor'] = self.main.style_bg_col
-            self.balances_win = Treewindow(icon=self.main.icon)
-            self.groupby_win = Groupwindow(self, self.main.icon)
-            self.details = Treewindow(icon=self.main.icon)
+            self.balances_win = Treewindow(app=self, icon=self.main.icon)
+            self.groupby_win = Groupwindow(app=self, icon=self.main.icon)
+            self.details = Treewindow(app=self, icon=self.main.icon)
+            self.filters_win = Filterswindow(app=self, icon=self.main.icon)
+
             # show popup window with balances
             self.move_time_window('onwards') # wraps update_subset
             self.show_balances()
             self.update_groupby_win('Category')
             self.initiated = True
             self.main.main.mainloop()
+
 
 
     def load_df(self):
@@ -115,6 +120,7 @@ class App:
                 self.config['columns'].append(currency)
                 return
         print('no valid currency found in dataframe. the header of one column has to match one of the following: ' + str(c))     
+
 
     def group_opts_change(self):
         if self.main.group_category.get():
@@ -177,6 +183,32 @@ class App:
         self.main.tree_main.yview_moveto(0)
 
 
+    def add_quick_filter(self, column, value):
+        self.filters_list.append((column,value))
+
+        self.df_subset = self.df_subset[self.filters_cond()]
+        
+        self.filters_win.show(self.filters_list)
+
+        self.update_tree_records()
+
+
+    def update_tree_records(self):
+        update_tree_records(self.df_subset, self.main.tree_main, self.config['display_columns'])
+
+
+    def filters_cond(self):
+
+        if len(self.filters_list) > 0:
+            filters_cond = self.df_subset[self.filters_list[0][0]] == self.filters_list[0][1]
+
+            for _ in self.filters_list[:-1]:
+                filters_cond = filters_cond & self.df_subset[_[0]] == _[1]
+
+            return filters_cond
+        
+        return list(self.df.columns)
+
     def update_subset(self, instruction=''):
         self.details.close()
 
@@ -208,7 +240,9 @@ class App:
             # group has the bad habit of having infinite decimal places
             self.df_subset[self.config['main_currency']] = self.df_subset[self.config['main_currency']].round(2)
 
-        update_tree_records(self.df_subset, self.main.tree_main, self.config['display_columns'])
+        self.df_subset = self.df_subset[self.filters_cond()]
+
+        self.update_tree_records()
 
         # update groupby_win if it was initiated
         if self.groupby_win.initiated:
@@ -280,6 +314,7 @@ class App:
                 self.main.main_y - 13
             ]
         )
+    
 
 
 if __name__ == '__main__':

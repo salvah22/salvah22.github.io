@@ -25,6 +25,7 @@ class pltwindow(Window):
 
         if self.main is None:
             self.main = Toplevel()
+            # self.main.group(self.app.main.main)
             self.main.bind('<Escape>', lambda e: self._quit())
             if self.icon is not None:
                 self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)

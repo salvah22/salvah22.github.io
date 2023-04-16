@@ -15,3 +15,5 @@ class Window:
 
     def __init__(self):
         self.main = None
+        self.position = None
+        self.title = None

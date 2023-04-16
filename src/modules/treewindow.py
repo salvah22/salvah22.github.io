@@ -17,7 +17,7 @@ class Treewindow(Window):
     tk toplevel window wrapping a treeview
     '''
 
-    def __init__(self, icon=None):
+    def __init__(self, app, icon=None):
         super().__init__()
         self.initiated = None
         self.tree_frame = None
@@ -26,6 +26,7 @@ class Treewindow(Window):
         self.title = None
         self.headings = None
         self.tree = None
+        self.app = app
         self.icon = icon
 
     def close(self):
@@ -37,7 +38,8 @@ class Treewindow(Window):
         self.headings = headings
         self.set_data_frame(dataframe)
         if self.main is None or not self.main.winfo_exists():
-            self.main = tk.Toplevel()
+            self.main = tk.Toplevel(self.app.main.main)
+            self.main.group(self.app.main.main)
             self.main.bind('<Escape>', lambda e: self._quit())
             if self.icon is not None:
                 self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)
@@ -86,8 +88,9 @@ class Treewindow(Window):
             self.tree = ttk.Treeview(self.tree_frame, style="mystyle.Treeview", columns=list(self.dataframe.columns), height=self.dataframe.shape[0], show='tree')
 
         self.tree.pack(side=tk.LEFT, expand=True, fill=tk.BOTH)
-        # self.tree.bind("<Button-3>", self.do_popup)
+        
         self.tree.bind("<Double-Button-1>", self.do_popup)
+        self.tree.bind("<Button-3>", self.do_popup)
 
         if scrollbar_bool:
             scrollbar = ttk.Scrollbar(self.tree_frame, orient=tk.VERTICAL, command=self.tree.yview)
@@ -111,22 +114,19 @@ class Treewindow(Window):
             self.tree.insert("", 0, values=row.tolist())
 
     def do_popup(self, event):
-        popup = Popup(self.main)
         iid = self.tree.identify_row(event.y)
         try:
-            popup.tk_popup(event.x_root, event.y_root)
-
             if iid:
                 self.tree.selection_set(iid)
-                print(self.tree.item(iid, 'values'))
-                # df_idx = int(self.tree.item(iid, 'values')[0])
+                popup = Popup(self, self.tree.item(iid, 'values'))
+                popup.tk_popup(event.x_root, event.y_root)
 
         finally:
             popup.grab_release()
 
 
 class Popup(tk.Menu):
-    def __init__(self, master):
-        tk.Menu.__init__(self, master, tearoff=0)
-        self.add_command(label="Filter with", command=lambda: print("holas"))
+    def __init__(self, master, kvp):
+        tk.Menu.__init__(self, master.main, tearoff=0)
+        self.add_command(label="Filter with", command=lambda: master.app.add_quick_filter(kvp[0], kvp[1]))
         self.bind("<FocusOut>", lambda x: self.destroy())

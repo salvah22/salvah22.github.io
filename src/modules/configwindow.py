@@ -10,5 +10,6 @@ class Configwindow(Window):
     '''
 
     def __init__(self):
-        # TODO: add all unique balances with checkboxes to hide/show them
+        super().__init__()
+        # TODO: add all unique accounts, with checkboxes, to allow hide/show func
         pass

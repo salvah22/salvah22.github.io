@@ -22,13 +22,16 @@ class Groupwindow(Treewindow):
     def __init__(self, app, icon=None):
         super().__init__(icon)
         self.tree_records = 15
-        self.parent = app
+        self.app = app
         self.canvas_frame = None
         self.combined_frame = None
         self.footer_frame = None
         self.tree_frame = None
         self.tree = None
-        self.win = None
+        self.position = None
+        self.fig = None
+        self.initiated = None
+        self.headings = None
 
     def update(self, dataframe: pd.DataFrame, fig, title:str=None, position:list=None, headings=True):
         self.initiated = True
@@ -41,14 +44,15 @@ class Groupwindow(Treewindow):
     def updateTk(self,title):
         
         ### init the toplevel tk element
-        if self.win is None or not self.win.winfo_exists():
-            self.win = tk.Toplevel()
-            self.win.bind('<Escape>', lambda e: self._quit())
+        if self.main is None or not self.main.winfo_exists():
+            self.main = tk.Toplevel(self.app.main.main)
+            self.main.group(self.app.main.main)
+            self.main.bind('<Escape>', lambda e: self._quit())
             if self.icon is not None:
-                self.win.tk.call('wm', 'iconphoto', self.win._w, self.icon)
+                self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)
         if title is not None:
             self.title = title
-            self.win.wm_title(title)
+            self.main.wm_title(title)
 
         # if the frame exists, detroy it
         if self.combined_frame is not None:
@@ -68,15 +72,15 @@ class Groupwindow(Treewindow):
             # height = 30 * self.dataframe.shape[0] + 25 # 30 per row + 25 margin
 
         if self.position is not None:
-            self.win.geometry(f'{width + 500}x{height+60}+{self.position[0]}+{self.position[1]}') # (width, height, x, y)
+            self.main.geometry(f'{width + 500}x{height+60}+{self.position[0]}+{self.position[1]}') # (width, height, x, y)
         else:
-            self.win.geometry(f'{width + 500}x{height+60}')
+            self.main.geometry(f'{width + 500}x{height+60}')
         
         if self.tree_frame is not None:
             self.tree_frame.destroy()
 
         # combined frame
-        self.combined_frame = tk.Frame(self.win, borderwidth=0, width=width+500, height=height)
+        self.combined_frame = tk.Frame(self.main, borderwidth=0, width=width+500, height=height)
         self.combined_frame.pack(side=tk.TOP, fill=tk.Y, expand=1)
 
         # tree frame
@@ -115,14 +119,14 @@ class Groupwindow(Treewindow):
 
         ### Footer buttons frame
         self.footer_frame = tk.Frame(
-            self.win,
+            self.main,
             highlightbackground="blue", 
             highlightthickness=0
         )
         self.footer_frame.pack(side=tk.TOP, expand=1, fill=tk.BOTH)
         tk.Label(self.footer_frame, 
             text="Total: "+str(self.dataframe.iloc[:,1].sum()), 
-            font=self.parent.config['fonts']['f10']
+            font=self.app.config['fonts']['f10']
         ).grid(row=0, column=0, padx=5, pady=5, sticky="w")
         frame1 = tk.Frame(
             self.footer_frame,
@@ -130,10 +134,10 @@ class Groupwindow(Treewindow):
             highlightthickness=0
         )
         frame1.place(x=430, y=-5, height=100)
-        tk.Label(frame1, text="Group by: ", font=self.parent.config['fonts']['f10']).grid(row=0, column=1, pady=5, sticky="e")
-        self.category_button = ttk.Button(frame1, text='Category', command=lambda: self.parent.update_groupby_win('Category'), style='Accent.TButton')
+        tk.Label(frame1, text="Group by: ", font=self.app.config['fonts']['f10']).grid(row=0, column=1, pady=5, sticky="e")
+        self.category_button = ttk.Button(frame1, text='Category', command=lambda: self.app.update_groupby_win('Category'), style='Accent.TButton')
         self.category_button.grid(row=0, column=2, padx=5, pady=5, sticky="e")
-        self.note_button = ttk.Button(frame1, text='Note', command=lambda: self.parent.update_groupby_win('Note'), style='Accent.TButton')
+        self.note_button = ttk.Button(frame1, text='Note', command=lambda: self.app.update_groupby_win('Note'), style='Accent.TButton')
         self.note_button.grid(row=0, column=3, pady=5, sticky="e")
 
 

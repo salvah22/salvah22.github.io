@@ -97,7 +97,7 @@ class App:
             self.show_balances()
             self.update_groupby_win('Category')
             self.initiated = True
-            self.main.main.mainloop()
+            self.main.root.mainloop()
 
 
 
@@ -186,6 +186,10 @@ class App:
     def add_quick_filter(self, column, value):
         self.filters_list.append((column,value))
 
+        print(self.filters_list)
+        print(str(self.filters_cond()))
+        # print(str(eval(self.filters_cond())))
+
         self.df_subset = self.df_subset[self.filters_cond()]
         
         self.filters_win.show(self.filters_list)
@@ -200,10 +204,11 @@ class App:
     def filters_cond(self):
 
         if len(self.filters_list) > 0:
-            filters_cond = self.df_subset[self.filters_list[0][0]] == self.filters_list[0][1]
+            _ = self.filters_list[0]
+            filters_cond = (self.df_subset[_[0]] == _[1])
 
             for _ in self.filters_list[:-1]:
-                filters_cond = filters_cond & self.df_subset[_[0]] == _[1]
+                filters_cond = filters_cond & (self.df_subset[_[0]] == _[1])
 
             return filters_cond
         

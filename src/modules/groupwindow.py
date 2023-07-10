@@ -32,6 +32,7 @@ class Groupwindow(Treewindow):
         self.fig = None
         self.initiated = None
         self.headings = None
+        self.root = None
 
     def update(self, dataframe: pd.DataFrame, fig, title:str=None, position:list=None, headings=True):
         self.initiated = True
@@ -44,15 +45,15 @@ class Groupwindow(Treewindow):
     def updateTk(self,title):
         
         ### init the toplevel tk element
-        if self.main is None or not self.main.winfo_exists():
-            self.main = tk.Toplevel(self.app.main.main)
-            self.main.group(self.app.main.main)
-            self.main.bind('<Escape>', lambda e: self._quit())
+        if self.root is None or not self.root.winfo_exists():
+            self.root = tk.Toplevel(self.app.main.root)
+            # self.root.group(self.app.main.root)
+            self.root.bind('<Escape>', lambda e: self._quit())
             if self.icon is not None:
-                self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)
+                self.root.tk.call('wm', 'iconphoto', self.root._w, self.icon)
         if title is not None:
             self.title = title
-            self.main.wm_title(title)
+            self.root.wm_title(title)
 
         # if the frame exists, detroy it
         if self.combined_frame is not None:
@@ -72,15 +73,15 @@ class Groupwindow(Treewindow):
             # height = 30 * self.dataframe.shape[0] + 25 # 30 per row + 25 margin
 
         if self.position is not None:
-            self.main.geometry(f'{width + 500}x{height+60}+{self.position[0]}+{self.position[1]}') # (width, height, x, y)
+            self.root.geometry(f'{width + 500}x{height+60}+{self.position[0]}+{self.position[1]}') # (width, height, x, y)
         else:
-            self.main.geometry(f'{width + 500}x{height+60}')
+            self.root.geometry(f'{width + 500}x{height+60}')
         
         if self.tree_frame is not None:
             self.tree_frame.destroy()
 
         # combined frame
-        self.combined_frame = tk.Frame(self.main, borderwidth=0, width=width+500, height=height)
+        self.combined_frame = tk.Frame(self.root, borderwidth=0, width=width+500, height=height)
         self.combined_frame.pack(side=tk.TOP, fill=tk.Y, expand=1)
 
         # tree frame
@@ -119,7 +120,7 @@ class Groupwindow(Treewindow):
 
         ### Footer buttons frame
         self.footer_frame = tk.Frame(
-            self.main,
+            self.root,
             highlightbackground="blue", 
             highlightthickness=0
         )

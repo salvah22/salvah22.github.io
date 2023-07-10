@@ -16,25 +16,25 @@ class Filterswindow(Window):
         super().__init__()
         self.icon = icon
         self.app = app
-        self.main = None
+        self.root = None
         self.frame = None
 
     def show(self, filters_list):
         ### init the toplevel tk element
-        if self.main is None or not self.main.winfo_exists():
-            self.main = tk.Toplevel(self.app.main.main)
-            self.main.group(self.app.main.main)
-            self.main.bind('<Escape>', lambda e: self._quit())
+        if self.root is None or not self.root.winfo_exists():
+            self.root = tk.Toplevel(self.app.main.root)
+            self.root.group(self.app.main.root)
+            self.root.bind('<Escape>', lambda e: self._quit())
             if self.icon is not None:
-                self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)
+                self.root.tk.call('wm', 'iconphoto', self.root._w, self.icon)
 
-        self.main.wm_title("Filters")
+        self.root.wm_title("Filters")
 
         # if the frame exists, detroy it
         if self.frame is not None:
             self.frame.destroy()
         
-        self.frame = tk.Frame(self.main, borderwidth=0)
+        self.frame = tk.Frame(self.root, borderwidth=0)
         self.frame.pack(side=tk.TOP, fill=tk.Y, expand=1)
 
         r = 0
@@ -51,6 +51,8 @@ class Filterswindow(Window):
 
     def remove_filter(self, val):
         self.app.filters_list.remove(val)
+        self.app.df_subset = self.app.df_subset[self.app.filters_cond()]
+        print(self.app.df_subset)
         print(val)
         print(self.app.filters_list)
         self.app.update_tree_records()

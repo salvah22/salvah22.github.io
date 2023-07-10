@@ -9,11 +9,11 @@ class Window:
 
     def _quit(self):
         # self.win.quit()     # stops mainloop
-        self.main.destroy()  # this is necessary on Windows to prevent
+        self.root.destroy()  # this is necessary on Windows to prevent
                             # Fatal Python Error: PyEval_RestoreThread: NULL tstate
-        self.main.update()
+        self.root.update()
 
     def __init__(self):
-        self.main = None
+        self.root = None
         self.position = None
         self.title = None

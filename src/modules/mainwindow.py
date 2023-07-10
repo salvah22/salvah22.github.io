@@ -25,20 +25,20 @@ class Mainwindow(Window):
         self.tree_main_records = 15
         self.frame_tree_height = int(30 * self.tree_main_records)
         self.frame_tree_width = int(60 + (len(self.config['display_columns']) - 1) * 130) # 60 idx + 130 p/column
-        self.main = tk.Tk()
-        self.main.title('Money Mgr.')
-        self.main.bind('<Escape>', lambda e: self._quit())
-        self.screen_width = self.main.winfo_screenwidth()
-        self.screen_height = self.main.winfo_screenheight()
+        self.root = tk.Tk()
+        self.root.title('Money Mgr.')
+        self.root.bind('<Escape>', lambda e: self._quit())
+        self.screen_width = self.root.winfo_screenwidth()
+        self.screen_height = self.root.winfo_screenheight()
         self.main_width = self.frame_tree_width + 10 # + 10 for margins ~ 1000
         self.main_height = self.frame_tree_height + 110 # 450 treeview + 110 other elements ~ 650
-        self.main.geometry(f'{self.main_width}x{self.main_height}')
+        self.root.geometry(f'{self.main_width}x{self.main_height}')
         self.main_x = int((self.screen_width)/2 - (self.main_width)/2) # screen_width - app_width
         self.main_y = int((self.screen_height)/2 - (self.main_height)/2)
         self.icon = tk.PhotoImage(file=icon_path)
-        self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)
+        self.root.tk.call('wm', 'iconphoto', self.root._w, self.icon)
         ### menu bar
-        self.main_menubar = tk.Menu(self.main)
+        self.main_menubar = tk.Menu(self.root)
         # file cascade menu
         self.main_filemenu = tk.Menu(self.main_menubar, tearoff=0)
         self.main_filemenu.add_command(label='Exit', command=self._quit)
@@ -50,11 +50,11 @@ class Mainwindow(Window):
         self.main_viewmenu.add_command(label='Configuration')
         self.main_menubar.add_cascade(label='View', menu=self.main_viewmenu)
         # set menubar when ready
-        self.main.config(menu=self.main_menubar)
+        self.root.config(menu=self.main_menubar)
         ### style
         self.style = ttk.Style()
         if theme:
-            self.main.tk.call('source', 'src/configs/'+theme+'.tcl')
+            self.root.tk.call('source', 'src/configs/'+theme+'.tcl')
             self.style.theme_use(theme) # for all ttk elems
         self.style_bg_col = str(self.style.lookup('TFrame', 'background'))
         
@@ -62,7 +62,7 @@ class Mainwindow(Window):
         self.style.configure('mystyle.Treeview', font=self.config['fonts']['f08'])
         self.style.configure('mystyle.Treeview.Heading', font=self.config['fonts']['f10'])
         self.style.layout('mystyle.Treeview', [('mystyle.Treeview.treearea', {'sticky': 'nswe'})])
-        self.frame_header = tk.Frame(self.main, borderwidth=0)
+        self.frame_header = tk.Frame(self.root, borderwidth=0)
         self.frame_header.pack(expand=True)
         ### Period frames
         self.button_last = ttk.Button(self.frame_header, text='Today', style='Accent.TButton', command=lambda: self.app.move_time_window('today'))
@@ -145,7 +145,7 @@ class Mainwindow(Window):
         self.checkbox_category = ttk.Checkbutton(self.frame_groups, text='category', variable=self.group_category, onvalue=True, offvalue=False, command=self.app.group_opts_change)
         self.checkbox_category.grid(row=2, column=0, sticky='nsew')  #.pack(side=tk.TOP, expand=True, padx=(0, 5))
         ### MAIN BIG TREE
-        self.frame_tree_container = tk.Frame(self.main)
+        self.frame_tree_container = tk.Frame(self.root)
         self.frame_tree_container.pack(expand=True, side=tk.TOP)
         self.frame_tree = tk.Frame(self.frame_tree_container, width=self.frame_tree_width, height=self.frame_tree_height) # -20 for the scrollbar
         self.frame_tree.grid(row=0, column=0)

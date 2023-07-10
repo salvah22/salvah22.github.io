@@ -28,24 +28,25 @@ class Treewindow(Window):
         self.tree = None
         self.app = app
         self.icon = icon
+        self.root = None
 
     def close(self):
         if self.initiated:
-            self.main.destroy()
+            self.root.destroy()
 
     def update(self, dataframe: pd.DataFrame, title:str=None, position:list=None, headings=True):
         self.initiated = True
         self.headings = headings
         self.set_data_frame(dataframe)
-        if self.main is None or not self.main.winfo_exists():
-            self.main = tk.Toplevel(self.app.main.main)
-            self.main.group(self.app.main.main)
-            self.main.bind('<Escape>', lambda e: self._quit())
+        if self.root is None or not self.root.winfo_exists():
+            self.root = tk.Toplevel(self.app.main.root)
+            self.root.group(self.app.main.root)
+            self.root.bind('<Escape>', lambda e: self._quit())
             if self.icon is not None:
-                self.main.tk.call('wm', 'iconphoto', self.main._w, self.icon)
+                self.root.tk.call('wm', 'iconphoto', self.root._w, self.icon)
         self.title = title
         if self.title is not None:
-            self.main.wm_title(title)
+            self.root.wm_title(title)
         self.position = position
         self.update_tk()
 
@@ -67,18 +68,18 @@ class Treewindow(Window):
             height = 30 * self.dataframe.shape[0] + 25 # 30 per row + 25 margin
 
         if self.position is not None:
-            self.main.geometry(f'{width}x{height}+{self.position[0]}+{self.position[1]}') # (width, height, x, y)
+            self.root.geometry(f'{width}x{height}+{self.position[0]}+{self.position[1]}') # (width, height, x, y)
         else:
-            self.main.geometry(f'{width}x{height}')
+            self.root.geometry(f'{width}x{height}')
         
         # frame
         if self.tree_frame is not None:
             self.tree_frame.destroy()
 
-        self.main.grid_rowconfigure(0, weight=1)
-        self.main.grid_columnconfigure(0, weight=1)
+        self.root.grid_rowconfigure(0, weight=1)
+        self.root.grid_columnconfigure(0, weight=1)
 
-        self.tree_frame = tk.Frame(self.main, borderwidth=0)
+        self.tree_frame = tk.Frame(self.root, borderwidth=0)
         self.tree_frame.grid(column=0, row=0, sticky="nsew")
 
         # treeview
@@ -127,6 +128,6 @@ class Treewindow(Window):
 
 class Popup(tk.Menu):
     def __init__(self, master, kvp):
-        tk.Menu.__init__(self, master.main, tearoff=0)
+        tk.Menu.__init__(self, master.root, tearoff=0)
         self.add_command(label="Filter with", command=lambda: master.app.add_quick_filter(kvp[0], kvp[1]))
         self.bind("<FocusOut>", lambda x: self.destroy())

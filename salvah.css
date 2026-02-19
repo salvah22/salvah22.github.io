@@ -32,6 +32,7 @@
     --bg-y-pos: -24px;
     --bg-y-height: -128px;
     --bg-y-height2: -81px;
+    --fgcol1: antiquewhite;
 }
 * {
 	margin:0;
@@ -39,19 +40,17 @@
 }
 html,body {
 	height: 100%;
+    user-select: none;
 }
 body {
 	font-family: 'Lato', sans-serif;
 	font-size: 2em;
-	color:#FFF;
-	font-weight: bold;
+	color: var(--fgcol1);
+	font-weight: bolder;
     background: #000000;
 }
 p {
     margin-bottom: 10px;
-}
-strong, b {
-    font-weight: bold;
 }
 div {
 	padding-left:20px;
@@ -62,50 +61,60 @@ div {
 a, a:visited {
 	text-decoration: none;
 }
-.divider {
-	background-image: url("img/back.jpg");
-    background-position-x: center;
-	text-align:center;
-	height: 83px/*calc(-1 * var(--bg-y-height2))*/;
-	padding-top:40px;
-	cursor:pointer;
-}
 #header {
-	background-image: url("img/back.jpg");
+	/* background-image: url("img/back.jpg"); */
+    background: #080038;
     justify-content: center;
-    background-position-x: center;
-    background-position-y: var(--bg-y-pos);
+    color: #de436b;
 	font-size:1.5em;
-	}
+    font-weight: 900;
+}
+#header img {
+    border-radius: 400px;
+    border: 4px solid antiquewhite;
+}
 .wrapper {
-	text-decoration:none;
-    text-align:center;
-    padding-top:20px;
-    padding-bottom:20px;
+	text-decoration: none;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.divider,
+.divider-background {
+    background: #080038;
+
+}
+.divider {
+	/* background-image: url("img/back.jpg"); */
+    color: #de436b;
+	text-align:center;
+	cursor:pointer;
+    padding-block: 30px;
 }
 .divider a {
 	background: #000000;
   	vertical-align: middle;
-	padding: 8px;
+    margin-inline: 20px;
+	padding: 10px;
 	cursor:pointer;
 	border-bottom: thick solid;
 }
 .divider:hover a{
-	color: #FFF;
+	color: var(--fgcol1);
 }
 .content {
-    background: #FFFFFF;
+    background: var(--fgcol1);
 	color: #000000;
 	font-weight:100;
 }
 .content a, .content a:visited {
-    color: #0059B3;
+    color: #de436b;
 }
 #nav {
     width: 100%;
 	z-index:50;
-	color: #FFF;
-	padding-left: 20px;
+	color: var(--fgcol1);
+	padding: 20px 40px;
     top: 0;
 	position: fixed;
 	line-height: 40px;
@@ -113,6 +122,11 @@ a, a:visited {
 	width:auto;
     cursor:pointer;
     background: #000000;
+}
+#nav p {
+	border-bottom: thick solid;
+    padding:10px;
+
 }
 /*Define the keyframe animation and name it blink*/
 @keyframes blink{
@@ -144,4 +158,7 @@ a, a:visited {
     -moz-animation: blink 1s linear infinite;
     -ms-animation: blink 1s linear infinite;
     -o-animation: blink 1s linear infinite;
+}
+.footer img {
+    border-radius: 400px;
 }

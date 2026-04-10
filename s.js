@@ -1,12 +1,14 @@
-let nav
+let nav;
+let modalDialog;
+function bodyLoad(){
+    nav = document.getElementById('nav');
+    modalDialog = document.getElementById('modal-dialog');
+}
 function hideAllContents(){
     var elements = document.getElementsByClassName('content');
     for(e of elements) {
         e.style.display = 'none';
     }
-}
-function bodyLoad(){
-    nav = document.getElementById('nav')
 }
 function navClick(){
     // hide all contents
@@ -38,8 +40,7 @@ function contentCheck(id){
     }
 }
 function enlargeMe(img) {
-  img.style.width = "700px";
-}
-function enlargeMe2(img) {
-  img.style.height = "600px";
+//   img.style.width = "700px";
+    modalDialog.showModal();
+    modalDialog.querySelector('img').src = img.src;
 }

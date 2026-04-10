@@ -13,7 +13,12 @@
 </head>
 
 <body onload='bodyLoad()'>
-<div id='nav' class='wrapper' onClick='navClick()'>
+
+<dialog id="modal-dialog" onclick="modalDialog.close()">
+    <img onclick="modalDialog.close()">
+</dialog>
+
+<div id='nav' class='wrapper' onclick='navClick()'>
     <p>Close all</p>
 </div>
 
@@ -99,6 +104,18 @@
 
     <br><hr><br>
 
+    <p><a href="https://shelf.salvadorh.com" target="_blank"><u>Shelf Life</u></a></p>
+    <p>Needing help to keep track of the kitchen's shelf, trying to avoid waste, developed Shelf Life to keep track and remind me and my friends of shelf item's expiracy dates with email reminders.</p>
+    <div class="overflow-x no-pad">
+        <img src='img/shelf/IMG_7910.jpg' height="500" onclick='enlargeMe(this)'>
+        <img src='img/shelf/IMG_7911.jpg' height="500" onclick='enlargeMe(this)'>
+        <img src='img/shelf/IMG_7923.jpg' height="500" onclick='enlargeMe(this)'>
+        <img src='img/shelf/IMG_7924.jpg' height="500" onclick='enlargeMe(this)'>
+        <img src='img/shelf/IMG_7925.jpg' height="500" onclick='enlargeMe(this)'>
+    </div>
+
+    <br><hr><br>
+
     <p><a href="https://finances.salvadorh.com" target="_blank"><u>Finance tracking tools</u></a></p>
     <p>Needing to keep track of my finances, and absolutely tired of third-party apps selling my data, I have worked some personal solutions that have made public in different ways.</p>
     <p>Developed a web application to parse a csv file into a nice dashboard combining Spring Boot, JSF, Primefaces and D3. Live demo available in <a href="https://finances.salvadorh.com" target="_blank">finances.salvadorh.com</a>.</p>
@@ -149,8 +166,8 @@
     <p>Applying a Machine Learning Random Forests classifier. <a href='https://github.com/salvah22/wetlands-monitoring-gee' target='_blank'>Available at Github.</a></p>
     <br>
     <p>
-        <img loading="lazy" src='img/koppen_ultimo.png' style='width:400px;cursor:pointer;' onClick='enlargeMe(this)'>
-        <img loading="lazy" src='img/rf_v1.png' style='width:400px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img loading="lazy" src='img/koppen_ultimo.png' style='width:400px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/rf_v1.png' style='width:400px;cursor:pointer;' onclick='enlargeMe(this)'>
     </p>
     
     <hr><br>
@@ -175,16 +192,16 @@
     <p>GIS experience including: Data Management, Harmonization, Digitization, georeferencing, Remote Sensing, Satellite Imagery, Spatial Databases (SQL & PostGIS), Cartography, Geostatistics</p>
     <br>
     <p>
-        <img loading="lazy" src='img/arcgis3.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'> <!-- enlargeMe(this) change width style from 200 to 700 -->
-        <img loading="lazy" src='img/arcgis1.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-        <img loading="lazy" src='img/arcgis2.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-        <img loading="lazy" src='img/arcgis4.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-        <img loading="lazy" src='img/gearth.jpg' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-        <img loading="lazy" src='img/Picture1.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-        <img loading="lazy" src='img/Picture3.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-        <img loading="lazy" src='img/cartopy.png' style='height:200px;cursor:pointer;' onClick='enlargeMe2(this)'>
-        <img loading="lazy" src='img/Rplot13.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
-        <img loading="lazy" src='img/topo.png' style='width:200px;cursor:pointer;' onClick='enlargeMe(this)'>
+        <img loading="lazy" src='img/arcgis3.png' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'> <!-- enlargeMe(this) change width style from 200 to 700 -->
+        <img loading="lazy" src='img/arcgis1.png' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/arcgis2.png' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/arcgis4.png' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/gearth.jpg' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/Picture1.png' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/Picture3.png' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/cartopy.png' style='height:200px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/Rplot13.png' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'>
+        <img loading="lazy" src='img/topo.png' style='width:200px;cursor:pointer;' onclick='enlargeMe(this)'>
     </p>
     <p style='font-size: 0.5em;'>(click images above to increase size)</p>
     <p><img loading="lazy" src='img/map_small.gif'><img loading="lazy" src='img/map_legend.png' height=600><img loading="lazy" src='img/sql.png'></p>

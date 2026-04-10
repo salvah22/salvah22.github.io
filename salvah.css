@@ -52,7 +52,7 @@ body {
 p {
     margin-bottom: 10px;
 }
-div {
+.content, .divider, .wrapper {
 	padding-left:20px;
 	padding-right:20px;
 	padding-top:5px;
@@ -106,20 +106,23 @@ a, a:visited {
     background: var(--fgcol1);
 	color: #000000;
 	font-weight:100;
-    overflow-x: scroll;
+    overflow-x: auto;
+}
+.overflow-x {
+    overflow-x: auto; 
+    white-space: nowrap;
 }
 .content a, .content a:visited {
     color: #de436b;
 }
 #nav {
-    width: 100%;
 	z-index:50;
 	color: var(--fgcol1);
 	padding: 20px 40px;
     top: 0;
+    right: 0;
 	position: fixed;
 	line-height: 40px;
-	float: left;
 	width:auto;
     cursor:pointer;
     background: #000000;
